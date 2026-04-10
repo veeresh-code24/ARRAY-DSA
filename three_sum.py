@@ -21,7 +21,7 @@ print(three_sum(nums))'''
 
 # Better 
 
-def triplet(n, nums):
+'''def triplet(n, nums):
     st = set()
 
     for i in range(n):
@@ -43,4 +43,5 @@ def triplet(n, nums):
 
 nums = [-1,0,1,2,-1,-4]
 n =  6
-print(triplet(n,nums))
+print(triplet(n,nums))'''
+
