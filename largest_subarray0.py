@@ -18,7 +18,7 @@
 
 # optimization
 
-def subarray_zer0(nums):
+def subarray_zero(nums):
     n = len(nums)
     d = {}
     max_len = 0
@@ -32,8 +32,8 @@ def subarray_zer0(nums):
 
         else:
             if sum in d:
-                length = i-d[sum]
-                max_len = max(max_len, length)
+                max_len = max(max_len, i - d[sum])
+
             else:
                 d[sum] = i
 
