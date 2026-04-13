@@ -1,5 +1,5 @@
 
-def zig_zag(nums):
+'''def zig_zag(nums):
     n = len(nums)
 
     for i in range(n):
@@ -10,7 +10,7 @@ def zig_zag(nums):
 
         
         for num in row:
-            print(num,end=" ")
+            print(num,end=" ")'''
 
 
 
@@ -22,10 +22,20 @@ def zig_zag(nums):
         #     for j in range(len(nums[i])-1,-1,-1):
         #         print(nums[i][j],end=" ")
 
+def matrix(nums):
+    n = len(nums)
 
+    for i in range(n):
+        if i%2 ==0:
+            for j in range(0,len(nums[i])):
+                print(nums[i][j],end = " ")
+
+        else:
+            for j in range(len(nums[i])-1,-1,-1):
+                print(nums[i][j],end = " ")
 
 
 nums = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
-zig_zag(nums)
+matrix(nums)
 
 
