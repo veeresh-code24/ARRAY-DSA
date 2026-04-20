@@ -33,3 +33,20 @@ print(rotate_array(nums,k))'''
 nums = [1,2,3,4,5,6,7]
 k = 3
 print(rotate_array(nums,k))'''
+
+
+'''def reverse(nums, l, r):
+    while l < r:
+        nums[l], nums[r] = nums[r], nums[l]
+        l += 1
+        r -= 1
+
+def rotate_array(nums, k):
+    n = len(nums)
+    k = k % n
+
+    reverse(nums, 0, k-1)
+    reverse(nums, k, n-1)
+    reverse(nums, 0, n-1)
+
+    return nums'''

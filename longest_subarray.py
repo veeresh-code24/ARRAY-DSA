@@ -50,6 +50,25 @@ k=16
 
 print(long_subarray(nums,k))'''
 
+
+'''def long_subarray(nums, k):
+    n = len(nums)
+    prefi_sum = 0
+    max_len = 0
+    d = {0: -1}  # ✅ Key fix
+    
+    for i in range(n):
+        prefi_sum += nums[i]
+        
+        rem = prefi_sum - k
+        if rem in d:
+            max_len = max(max_len, i - d[rem])
+        
+        if prefi_sum not in d:  # ✅ Store prefix, not rem
+            d[prefi_sum] = i
+    
+    return max_len'''
+
 # Optimization
 
 def longest_sunarray(nums,k):

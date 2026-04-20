@@ -22,7 +22,7 @@ print(move_zero(nums))'''
 
 # Optimization
 
-def move_zero(nums):
+'''def move_zero(nums):
     n = len(nums)
     nz = 0
     z = 0
@@ -40,5 +40,17 @@ def move_zero(nums):
 
 nums = [0,1,0,3,12]
 print(move_zero(nums))
+
+# Cleaner version
+
+def move_zero(nums):
+    z = 0
+
+    for nz in range(len(nums)):
+        if nums[nz] != 0:
+            nums[z], nums[nz] = nums[nz], nums[z]
+            z += 1
+
+    return nums'''
 
 
