@@ -47,29 +47,50 @@ print(longest_substring(s))'''
 
 # Optimization
 
-def longest_substring(s):
-    n = len(s)
-    left,right,max_len = 0,0,0
-    hashset = [-1]*256
+# def longest_substring(s):
+#     n = len(s)
+#     left,right,max_len = 0,0,0
+#     hashset = [-1]*256
 
-    while right < n:
-        if hashset[ord(s[right])] != -1:
-            left = max(hashset[ord(s[right])]+1,left)
+#     while right < n:
+#         if hashset[ord(s[right])] != -1:
+#             left = max(hashset[ord(s[right])]+1,left)
 
-        max_len = max(right-left+1,max_len)
+#         max_len = max(right-left+1,max_len)
 
-        hashset[ord(s[right])] = right
-        right += 1
+#         hashset[ord(s[right])] = right
+#         right += 1
 
-    return max_len
-
-
-
+#     return max_len
+ 
 
 
-
-s = "abcabcbb"
+# s = "abcabcbb"
 # s = "bbbbbb"
 # s = "pwwkew"
 # s = "cadbzabcd"
+# print(longest_substring(s))
+
+
+# Better Optimization
+
+def longest_substring(s):
+    last_seen = {}
+    left = 0
+    max_len = 0
+
+    for right in range(len(s)):
+        if s[right] in last_seen:
+            left = max(last_seen[s[right]] + 1, left)
+
+        # last_seen[s[right]] = right
+        max_len = max(max_len, right - left + 1)
+        last_seen[s[right]] = right
+
+    return max_len
+
+# s = "abcabcbb"
+# s = "bbbbbb"
+# s = "pwwkew"
+s = "cadbzabcd"
 print(longest_substring(s))
