@@ -1,164 +1,89 @@
-# # def longest_subarray(nums,k):
-# #     n = len(nums)
-# #     d = {0:-1}
-# #     max_len = 0
-# #     prefix_sum = 0
+# def sorted_array(nums1,m,nums2,n):
+#     arr = []
+
+#     for i in range(m):
+#         arr.append(nums1[i])
+
+#     for i in range(n):
+#         arr.append(nums2[i])
+
+#     arr.sort()
+
+#     for i in range(len(arr)):
+#         nums1[i] = arr[i]
+
+#     return nums1
+# nums1 = [1,2,3,0,0,0]
+# m = 3
+# nums2 = [2,5,6]
+# n = 3
+# print(sorted_array(nums1,m,nums2,n))
 
 
-# #     for i in range(n):
-# #         prefix_sum += nums[i]
-
-# #         if prefix_sum-k in d:
-# #             max_len = max(max_len, i-d[prefix_sum-k])
-
-# #         if prefix_sum not in d:
-# #             d[prefix_sum] = i
-
-# #     return max_len
-
-# # # nums =  [10, 5, 2, 7, 1, 9]
-# # # k=15
-# # nums = [-3, 2, 1]
-# # k=6
-
-# # print(longest_subarray(nums,k))
-
-# # def two_sum(nums,target):
-# #     n = len(nums)
-
-# #     for i in range(n):
-# #         for j in range(i+1,n):
-# #             if nums[j] + nums[i] == target:
-# #                 return i,j
-
-# # nums = [2,7,11,15]
-# # target = 9
-# # print(two_sum(nums,target))
-
-# # def two_sum(nums,target):
-# #     n = len(nums)
-# #     d = {}
-
-# #     for i in range(n):
-# #         a = nums[i]
-# #         mpp = target - nums[i]
-# #         if mpp in d:
-# #             return d[mpp],i
-        
-# #         d[a] = i
-
-
-# # # nums = [2,7,11,15]
-# # # target = 9
-# # nums = [3,3]
-# # target = 6
-# # print(two_sum(nums,target))
-
-# # def two_sum(nums,target):
-# #     n = len(nums)
-# #     right = n-1
-# #     left = 0
-# #     while left < right:
-# #         sum = nums[left] + nums[right]
-
-# #         if sum == target:
-# #             return "Yes"
-        
-# #         elif sum < target:
-# #             left += 1
-
-# #         else:
-# #             right -= 1
-
-# #     return "No"
-
-# # nums = [2,7,11,15]
-# # target = 9
-# # # nums = [3,4]
-# # # target = 6
-# # print(two_sum(nums,target))
-
-# def longest_subarray(nums,k):
-#     n = len(nums)
-#     if n == 0:
-#         return 0
+# def sorted_array(nums1,m,nums2,n):
+#     arr = [0]*(m+n)
 
 #     left = 0
 #     right = 0
-#     max_len = 0
-#     prefix_sum = nums[0]
+#     index = 0
 
-#     while right < n:
-#         while left <= right and  prefix_sum > k:
-#             prefix_sum -= nums[left]
+#     while left < m and right < n:
+#         if nums1[left] < nums2[right]:
+#             arr[index] = nums1[left]
+#             index += 1
 #             left += 1
 
-#         if prefix_sum == k:
-#             max_len = max(max_len,right-left+1)
+#         else:
+#             arr[index] = nums2[right]
+#             index += 1
+#             right += 1
 
+#     while left < m:
+#         arr[index] = nums1[left]
+#         index += 1
+#         left += 1
+
+#     while right < n:
+#         arr[index] = nums2[right]
+#         index += 1
 #         right += 1
+    
+#     for i in range(len(arr)):
+#         nums1[i] = arr[i]
 
-#         if right < n:
-#             prefix_sum += nums[right]
-#     return max_len
+#     return nums1
 
-# nums = [10, 5, 2, 7, 1, 1, 9]
-# k=16 
-# print(longest_subarray(nums,k))
+# nums1 = [1,2,3,0,0,0]
+# m = 3
+# nums2 = [2,5,6]
+# n = 3
+# print(sorted_array(nums1,m,nums2,n))
 
+def sorted_array(nums1,m,nums2,n):
+    n = len(nums1)
+    m = len(nums2)
 
-# def maximum_subarray(nums):
-#     n = len(nums)
-#     max_len = 0
+    left = n-1
+    right = 0
 
-#     for i in range(n):
-#         sum = 0
-#         for j in range(i,n):
-#             sum += nums[j]
+    while left >= 0 and right < m:
+        if nums1[left] > nums2[right]:
+            nums1[left],nums2[right]= nums2[right],nums1[left]
+            left -= 1
+            right += 1
 
-#             max_len = max(max_len ,sum)
+        else:
+            break
 
-#     return max_len
+    nums1.sort()
+    nums2.sort()
 
-# # nums = [5,4,-1,7,8]
-# # nums = [-2,1,-3,4,-1,2,1,-5,4]
-# nums = [1]
-
-# print(maximum_subarray(nums))
-
-
-def maximum_subarray(nums):
-    n = len(nums)
-    sum = float('-inf')
-    maxi_len = 0
-    start_begin = 0
-    start = 0
-    end = 0
-
-
-    for i in range(n):
-
-        if sum < 0:
-            sum = 0
-            start_begin = i
-        sum += nums[i]
-
-        if sum > maxi_len:
-            maxi_len = sum
-            start = start_begin
-            end = i
-    print(nums[nums[start]:nums[end+1]])
-
-    return maxi_len
+    return nums1,nums2
 
 
 
-
-
-
-nums = [5,4,-1,7,8]
-# nums = [-2,1,-3,4,-1,2,1,-5,4]
-# nums = [1]
-
-print(maximum_subarray(nums))
-
+nums1 = [1,3,5,7]
+m = 4
+nums2 = [0,2,6,8,9]
+n = 5
+print(sorted_array(nums1,m,nums2,n))

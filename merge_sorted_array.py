@@ -20,6 +20,8 @@ nums2 = [2,5,6]
 n = 3
 print(merge_sorted_array(nums1,nums2,m,n))'''
 
+# Better
+
 
 '''def merge_sorted_array(nums1,nums2,m,n):
    arr = [0] * (n+m)
@@ -59,16 +61,17 @@ nums2 = [2,5,6]
 n = 3
 print(merge_sorted_array(nums1,nums2,m,n))'''
 
-
+# Optimal 1
 
 def merge_sorted_array(nums1,nums2,m,n):
-    left = m-1
+    n = len(nums1)
+    m = len(nums2)
+    left = n-1
     right = 0
 
-
-    while left < 0 and right < n:
+    while left >= 0 and right < m:
         if nums1[left] > nums2[right]:
-            nums1[left],nums2[right] = nums2[right],nums1[left]
+            nums1[left],nums2[right]= nums2[right],nums1[left]
             left -= 1
             right += 1
 
@@ -80,12 +83,9 @@ def merge_sorted_array(nums1,nums2,m,n):
 
     return nums1,nums2
 
-
-   
-
-nums1 = [1,2,2]
+nums1 = [1,3,5,7]
 m = 3
-nums2 = [2,5,6]
+nums2 = [0,2,6,8,9]
 n = 3
 print(merge_sorted_array(nums1,nums2,m,n))
 
