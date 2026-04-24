@@ -61,9 +61,12 @@ nums2 = [2,5,6]
 n = 3
 print(merge_sorted_array(nums1,nums2,m,n))'''
 
-# Optimal 1
+# Optimal 1. Your method
+# O(n log n)
+# O(1)
+# OK but not optimal
 
-def merge_sorted_array(nums1,nums2,m,n):
+'''def merge_sorted_array(nums1,nums2,m,n):
     n = len(nums1)
     m = len(nums2)
     left = n-1
@@ -84,10 +87,12 @@ def merge_sorted_array(nums1,nums2,m,n):
     return nums1,nums2
 
 nums1 = [1,3,5,7]
-m = 3
+m = 4
 nums2 = [0,2,6,8,9]
-n = 3
-print(merge_sorted_array(nums1,nums2,m,n))
+n = 5
+print(merge_sorted_array(nums1,nums2,m,n))'''
+
+
 
 
 
