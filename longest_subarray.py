@@ -99,6 +99,31 @@ k=16
 
 print(longest_sunarray(nums,k))
 
+# little bit better
+def longest_subarray(nums, k):
+    n = len(nums)
+
+    left = 0
+    pre_sum = 0
+    max_len = 0
+
+    for right in range(n):
+        pre_sum += nums[right]
+
+        while left <= right and pre_sum > k:
+            pre_sum -= nums[left]
+            left += 1
+
+        if pre_sum == k:
+            max_len = max(max_len, right - left + 1)
+
+    return max_len
+
+
+nums = [10, 5, 2, 7, 1, 9]
+k = 15
+print(longest_subarray(nums, k))
+
 
  
 
