@@ -245,22 +245,51 @@
 # k=15
 # print(longest_subarray(nums,k))
 
+# def valid_anagram(s,t):
+
+#     if len(s) != len(t):
+#         return False
+    
+
+#     if sorted(s) == sorted(t):
+#         return True
+    
+#     return False
+
+# # s = "anagram"
+# # t = "nagaram"
+# s = "car"
+# t = "rat"
+# print(valid_anagram(s,t))
+
 def valid_anagram(s,t):
 
     if len(s) != len(t):
         return False
+    freq = [0] * 26
+    
+    for char in s:
+        freq[ord(char) - ord('a')] += 1
+
+
+    for char in t:
+        freq[ord(char) - ord('a')] -= 1
+
+
+    for count in freq:
+        if count != 0:
+            return False
+        
+    return True
+
     
 
-    if sorted(s) == sorted(t):
-        return True
-    
-    return False
-
-# s = "anagram"
-# t = "nagaram"
-s = "car"
-t = "rat"
+s = "anagram"
+t = "nagaram"
+# s = "car"
+# t = "rat"
 print(valid_anagram(s,t))
+
 
 
 
