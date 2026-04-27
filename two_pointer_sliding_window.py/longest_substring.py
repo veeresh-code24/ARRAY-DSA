@@ -95,22 +95,3 @@
 # s = "cadbzabcd"
 # print(longest_substring(s))
 
-def fruit_basket(fruits):
-    n = len(fruits)
-    max_len = 0
-
-    for i in range(n):
-        box = {}
-
-        for j in range(i,n):
-            box[fruits[j]] = box.get(fruits[j],0)+1
-
-            if len(box) > 2:
-                break
-
-            max_len = max(max_len,j-i+1)
-    return max_len
-# fruits = [1, 2, 1]
-fruits = [1, 2, 3, 2, 2]
-
-print(fruit_basket(fruits))
