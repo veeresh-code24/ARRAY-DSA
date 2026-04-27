@@ -1,96 +1,116 @@
-# Brute force
+# # Brute force
 
-'''def longest_substring(s):
-    n = len(s)
-    max_len = 0
-
-    for i in range(n):
-        visited = [0]*256
-        for j in range(i,n):
-            if visited[ord(s[j])] == 1:
-                break
-
-            visited[ord(s[j])] = 1
-
-            max_len = max(max_len,j-i+1)
-
-    return max_len
-
-s = "abcabcbb"
-s = "bbbbbb"
-s = "pwwkew"
-s = "cadbzabcd"
-print(longest_substring(s))'''
-
-# Brute force
-
-'''def longest_substring(s):
-    n = len(s)
-    max_len = 0
-
-    for i in range(n):
-        hashset = set()
-        for j in range(i,n):
-            if s[j] in hashset:
-                break
-            hashset.add(s[j])
-
-            max_len = max(max_len, j-i+1)
-
-    return max_len
-
-s = "abcabcbb"
-s = "bbbbbb"
-s = "pwwkew"
-s = "cadbzabcd"
-print(longest_substring(s))'''
-
-# Optimization
-
-# def longest_substring(s):
+# '''def longest_substring(s):
 #     n = len(s)
-#     left,right,max_len = 0,0,0
-#     hashset = [-1]*256
+#     max_len = 0
 
-#     while right < n:
-#         if hashset[ord(s[right])] != -1:
-#             left = max(hashset[ord(s[right])]+1,left)
+#     for i in range(n):
+#         visited = [0]*256
+#         for j in range(i,n):
+#             if visited[ord(s[j])] == 1:
+#                 break
 
-#         max_len = max(right-left+1,max_len)
+#             visited[ord(s[j])] = 1
 
-#         hashset[ord(s[right])] = right
-#         right += 1
+#             max_len = max(max_len,j-i+1)
 
 #     return max_len
- 
-
 
 # s = "abcabcbb"
 # s = "bbbbbb"
 # s = "pwwkew"
 # s = "cadbzabcd"
-# print(longest_substring(s))
+# print(longest_substring(s))'''
 
+# # Brute force
 
-# Better Optimization
+# '''def longest_substring(s):
+#     n = len(s)
+#     max_len = 0
 
-def longest_substring(s):
-    last_seen = {}
-    left = 0
-    max_len = 0
+#     for i in range(n):
+#         hashset = set()
+#         for j in range(i,n):
+#             if s[j] in hashset:
+#                 break
+#             hashset.add(s[j])
 
-    for right in range(len(s)):
-        if s[right] in last_seen:
-            left = max(last_seen[s[right]] + 1, left)
+#             max_len = max(max_len, j-i+1)
 
-        # last_seen[s[right]] = right
-        max_len = max(max_len, right - left + 1)
-        last_seen[s[right]] = right
-
-    return max_len
+#     return max_len
 
 # s = "abcabcbb"
 # s = "bbbbbb"
 # s = "pwwkew"
-s = "cadbzabcd"
-print(longest_substring(s))
+# s = "cadbzabcd"
+# print(longest_substring(s))'''
+
+# # Optimization
+
+# # def longest_substring(s):
+# #     n = len(s)
+# #     left,right,max_len = 0,0,0
+# #     hashset = [-1]*256
+
+# #     while right < n:
+# #         if hashset[ord(s[right])] != -1:
+# #             left = max(hashset[ord(s[right])]+1,left)
+
+# #         max_len = max(right-left+1,max_len)
+
+# #         hashset[ord(s[right])] = right
+# #         right += 1
+
+# #     return max_len
+ 
+
+
+# # s = "abcabcbb"
+# # s = "bbbbbb"
+# # s = "pwwkew"
+# # s = "cadbzabcd"
+# # print(longest_substring(s))
+
+
+# # Better Optimization
+
+# def longest_substring(s):
+#     last_seen = {}
+#     left = 0
+#     max_len = 0
+
+#     for right in range(len(s)):
+#         if s[right] in last_seen:
+#             left = max(last_seen[s[right]] + 1, left)
+
+#         # last_seen[s[right]] = right
+#         max_len = max(max_len, right - left + 1)
+#         last_seen[s[right]] = right
+
+#     return max_len
+
+# # s = "abcabcbb"
+# # s = "bbbbbb"
+# # s = "pwwkew"
+# s = "cadbzabcd"
+# print(longest_substring(s))
+
+def fruit_basket(fruits):
+    n = len(fruits)
+    max_len = 0
+
+    for i in range(n):
+        box = {}
+
+        for j in range(i,n):
+            box[fruits[j]] = box.get(fruits[j],0)+1
+
+            if len(box) > 2:
+                break
+
+            max_len = max(max_len,j-i+1)
+    return max_len
+# fruits = [1, 2, 1]
+fruits = [1, 2, 3, 2, 2]
+
+print(fruit_basket(fruits))
