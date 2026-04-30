@@ -1,253 +1,139 @@
-# def longest_substring(s):
-#     n = len(s)
-#     left = 0
-#     max_len = 0
-#     st = {}
-
-#     for right in range(n):
-#         if s[right] in st:
-#             left = max(st[s[right]]+1,left)
-
-#         max_len = max(max_len,right-left+1)
-#         st[s[right]] = right
-
-#     return max_len
-
-# # s = "abcabcbb"
-# # s = "bbbbb"
-# s = "pwwkew"
-# print(longest_substring(s))
-
-def max_consecutive(nums,k):
-    n = len(nums)
-    max_len = 0
-
-    for i in range(n):
-        count = 0
-        for j in range(i,n):
-            if nums[j] == 0:
-                count += 1
-
-
-            if count > k:
-                break
-
-
-            max_len = max(max_len,j-i+1)
-
-    return max_len
-
-
-# nums = [1,1,1,0,0,0,1,1,1,1,0]
-# k = 2
-# nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1]
-# k = 3
-# print(max_consecutive(nums,k))
-
-# def max_consecutive(nums,k):
+# def count_subarray(nums,k):
 #     n = len(nums)
-#     max_len = 0
-#     zero = 0
-#     left = 0
-
-#     for right in range(n):
-#         if nums[right] == 0:
-#             zero += 1
-
-
-#         while zero > k:
-#             if nums[left] == 0:
-#                 zero -= 1
-
-#             left += 1
-        
-#         max_len = max(max_len,right-left+1)
-
-#     return max_len
-
-
-# nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1]
-# k = 3
-# print(max_consecutive(nums,k))
-
-
-# def fruits_basket(fruits):
-#     n = len(fruits)
-#     max_len = 0
-
+#     count = 0
 
 #     for i in range(n):
-#         basket = {}
+#         odd_number = 0
 #         for j in range(i,n):
-#             basket[fruits[j]] = basket.get(fruits[j],0)+1
+#             if nums[j] % 2 != 0:
+#                 odd_number += 1
 
-#             if len(basket) > 2:
+#             if odd_number == k:
+#                 count += 1
+#             elif odd_number > k:
 #                 break
 
-#             max_len = max(max_len,j-i+1)
-
-#     return max_len
-
-# # fruits = [1, 2, 3, 2, 2]
-# fruits = [1, 2, 1]
-# print(fruits_basket(fruits))
-
-# def fruits_basket(fruits):
-#     n = len(fruits)
-#     mapp = {}
-#     max_len = 0
-#     left = 0
-
-#     for right in range(n):
-#         mapp[fruits[right]] = mapp.get(fruits[right],0)+1
-
-#         if len(mapp) > 2:
-#             mapp[fruits[left]] -= 1
-
-#             if mapp[fruits[left]] == 0:
-#                 del mapp[fruits[left]]
-
-#             left += 1
-
-#         max_len = max(max_len, right-left+1)
-
-#     return max_len
-
-    
+#     return count
 
 
-
- 
-
-
-# # fruits = [1, 2, 3, 2, 2]
-# fruits = [1, 2, 1]
-# print(fruits_basket(fruits))
-
-
-# def longest_substring_char_repl(s,k):
-#     n = len(s)
-#     max_len = 0
-
-#     for i in range(n):
-#         freq = {}
-#         max_freq = 0
-#         for j in range(i,n):
-#             freq[s[j]] = freq.get(s[j],0)+1
-
-#             max_freq = max(max_freq,freq[s[j]])
-
-#             window_len = j-i+1
-#             replace = (window_len-max_freq)
-
-#             if replace <= k:
-#                 max_len = max(max_len,window_len)
-
-#     return max_len
-
-# s = "AABABBA"
-# # s = "ABAB"
-# k = 1
-# print(longest_substring_char_repl(s,k))
-
-# def longest_substring_char_repl(s,k):
-#     n = len(s)
-#     mapp = {}
-#     max_freq = 0
-#     max_len = 0
-#     left = 0
-
-#     for right in range(n):
-#         mapp[s[right]] = mapp.get(s[right],0)+1
-#         max_freq = max(max_freq,mapp[s[right]])
-
-
-#         while right-left+1-max_freq > k:
-#             mapp[s[left]] -= 1
-#             # if mapp[s[left]] == 0:
-#             left += 1
-
-
-#         max_len = max(max_len,right-left+1)
-
-#     return max_len
-
-
-# # s = "AABABBA"
-# s = "ABAB"
+# # nums = [1,1,2,1,1]
+# # nums = [2,4,6]
+# # k = 1
+# # k = 3
+# nums = [2,2,2,1,2,2,1,2,2,2]
 # k = 2
-# print(longest_substring_char_repl(s,k))
+# print(count_subarray(nums,k))
 
-# def binary_sum(nums,goal):
+# def count_subarray(nums,k):
 #     n = len(nums)
+#     left = 0
+#     count = 0
+
+#     for right in range(n):
+#         if nums[right] % 2 == 1:
+#             k -= 1
+
+#         while  k < 0:
+#             if nums[left] % 2 == 1:
+#                 k += 1
+
+#             left += 1
+
+#         count += (right-left+1)
+
+#     return count
+
+# def total_count_subarray(nums,k):
+#     return count_subarray(nums,k) - count_subarray(nums,k-1)
+
+
+# # nums = [1,1,2,1,1]
+# # nums = [2,4,6]
+# # k = 1
+# # k = 3
+# nums = [2,2,2,1,2,2,1,2,2,2]
+# k = 2
+# print(total_count_subarray(nums,k))
+
+# def containing_substring(s):
+#     n = len(s)
 #     count = 0
 
 #     for i in range(n):
-#         total = 0
+#         d = {'a':0,'b':0,'c':0}
 #         for j in range(i,n):
-#             total += nums[j]
+#             d[s[j]] += 1
 
-#             if total == goal:
+#             if d['a'] > 0 and d['b'] > 0 and d['c'] > 0:
 #                 count += 1
-#             # else:
-#                 # break
-
 
 #     return count
 
+# # s = "abcabc"
+# # s = "aaacb"
+# s = "abc"
+# print(containing_substring(s))
 
-# nums = [1,0,1,0,1]
-# # nums = [0,0,0,0,0]
-# goal = 2
-# print(binary_sum(nums,goal))
+# def containing_substring(s):
+#     n = len(s)
+#     st = [0,0,0]
+#     res = 0
+#     left = 0
 
-# def binary_sum(nums,goal):
-#     n  = len(nums)
-#     d= {0:1}
-#     pre_sum = 0
-#     count = 0
+#     for right in range(n):
+#         st[ord(s[right]) - ord('a')] += 1
 
-#     for i in range(n):
-#         pre_sum += nums[i]
+#         while st[0] > 0 and st[1] > 0 and st[2] > 0:
+#             res += (len(s) - right)
 
-#         if pre_sum - goal in d:
-#             count += d[pre_sum-goal]
+#             st[ord(s[left]) - ord('a')] -= 1
+#             left += 1
 
-#         d[pre_sum] = d.get(pre_sum,0)+1
+#     return res
 
-#     return count
+# s = "abcabc"
+# # s = "aaacb"
+# # s = "abc"
+# print(containing_substring(s))
 
-# # nums = [1,0,1,0,1]
-# nums = [0,0,0,0,0]
-# goal = 0
-# print(binary_sum(nums,goal))
+'''def cardspoints(cardPoints):
+    n = len(cardPoints)
+    max_sum = 0
 
-def binary_sum(nums,goal):
-    n = len(nums)
-    if goal < 0:
-        return 0
-    
-    pre_sum = 0
-    left = 0
-    count = 0
+    for i in range(k+1):
+        card_sum = 0
+        for j in range(i):
+            card_sum += cardPoints[j]
 
-    for right in range(n):
-        pre_sum += nums[right]
+        for j in range(k-i):
+            card_sum += cardPoints[n-1-j]
+
+        max_sum = max(max_sum,card_sum)
+
+    return max_sum
+
+# cardPoints = [2,2,2]
+# cardPoints = [9,7,7,9,7,7,9]
+cardPoints = [1,2,3,4,5,6,1]
+k = 3
+print(cardspoints(cardPoints))'''
+
+def cardspoints(cardPoints):
+    n = len(cardPoints)
+
+    total = sum(cardPoints[:k])
+    max_count = total
+
+    for i in range(k):
+        total -= cardPoints[k-1-i]
+
+        total += cardPoints[n-1-i]
+
+        max_count = max(max_count,total)
+
+    return max_count
 
 
-        while pre_sum > goal:
-            pre_sum -= nums[left]
-            left += 1
-
-        count += (right -left +1)
-    return count
-
-def at_most(nums,goal):
-    return binary_sum(nums,goal) - binary_sum(nums,goal-1)
-
-
-
-# nums = [1,0,1,0,1]
-nums = [0,0,0,0,0]
-goal = 0
-print(at_most(nums,goal))
+cardPoints = [2,2,2]
+k = 2
+print(cardspoints(cardPoints))
