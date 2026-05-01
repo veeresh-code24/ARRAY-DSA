@@ -62,6 +62,31 @@ Time: O(n) ✅ (single loop)
 Space: O(1) ✅ (no extra space)'''
 
 
+def max_subarray_with_indices(arr):
+    curr_sum = arr[0]
+    max_sum = arr[0]
+
+    start = 0
+    ans_start = 0
+    ans_end = 0
+
+    for i in range(1, len(arr)):
+        # decide whether to start new subarray
+        if arr[i] > curr_sum + arr[i]:
+            curr_sum = arr[i]
+            start = i
+        else:
+            curr_sum += arr[i]
+
+        # update best result
+        if curr_sum > max_sum:
+            max_sum = curr_sum
+            ans_start = start
+            ans_end = i
+
+    return max_sum, ans_start, ans_end
+
+
 
 
 

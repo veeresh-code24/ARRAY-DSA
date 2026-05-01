@@ -50,3 +50,21 @@ def rotate_array(nums, k):
     reverse(nums, 0, n-1)
 
     return nums'''
+
+# Right rotate
+
+def left_rotate(nums,k):
+    n = len(nums)
+    k = k%n
+    nums[:] = reversed(nums[::])
+    # nums[k:] = reversed(nums[k:])
+    nums[:k] = reversed(nums[:k])
+    nums[k:] = reversed(nums[k:])
+    # nums[:] = reversed(nums[::])
+    return nums
+
+
+
+nums = [1,2,3,4,5,6,7]
+k = 3
+print(left_rotate(nums,k))
