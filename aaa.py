@@ -84,43 +84,169 @@
 # print(floor(nums,x))
 # print(ceil(nums,x))
 
-def first(nums,target):
-    n = len(nums)
+# def first(nums,target):
+#     n = len(nums)
 
+#     low,high = 0,n-1
+#     res = [-1,-1]
+
+#     while low <= high:
+#         mid = (low+high)//2
+
+#         if nums[mid] == target:
+#             res[0] = mid
+#             high = mid-1
+
+#         elif nums[mid] < target:
+#             low = mid+1
+
+#         else:
+#             high = mid-1
+
+
+#     low,high = 0,n-1
+
+#     while low <= high:
+#         mid= (low+high)//2
+
+#         if nums[mid] == target:
+#             res[1] = mid
+#             low = mid+1
+
+#         elif nums[mid] < target:
+#             low = mid+1
+
+#         else:
+#             high = mid-1
+
+#     return res
+
+# nums = [5,7,7,8,8,10]
+# target = 6
+# print(first(nums,target))
+
+
+'''def firstOccurence(arr,target):
+    n = len(arr)
+
+    first = -1
     low,high = 0,n-1
-    res = [-1,-1]
 
     while low <= high:
         mid = (low+high)//2
 
-        if nums[mid] == target:
-            res[0] = mid
+        if arr[mid] == target:
+            first = mid
             high = mid-1
 
-        elif nums[mid] < target:
+        elif  arr[mid] < target:
             low = mid+1
 
         else:
             high = mid-1
 
+    return first
+
+def last_occurence(arr,target):
+    n = len(arr) 
+    low,high = 0, n-1
+    last = -1
+
+    while low <= high:
+        mid = (low+high)//2
+
+        if arr[mid] == target:
+            last = mid
+            low = mid+1
+
+        elif arr[mid] < target:
+            low = mid+1
+
+        else:
+            high = mid-1
+
+    return last
+
+def firstLastOccurence(arr,target):
+    first = firstOccurence(arr,target)
+    if first == -1:
+        return [-1,-1]
+    
+    last =  last_occurence(arr,target)
+    return [first,last]
+
+def count(arr,target):
+    first,last = firstLastOccurence(arr,target)
+    if first == -1:
+        return 0
+    return (last-first+1)
+
+# arr = [0, 0, 1, 1, 1, 2, 3]
+# target = 1
+arr = [5, 5, 5, 5, 5, 5]
+target = 5
+print(count(arr,target))'''
+
+
+# def search_rotate_sorted(nums,target):
+#     n = len(nums)
+
+#     low,high = 0,n-1
+
+#     while low <= high:
+#         mid = (low+high)//2
+
+#         if nums[mid] == target:
+#             return mid
+        
+#         elif nums[low] <= nums[mid]:
+#             if nums[low] <= target < nums[mid]:
+#                 high = mid-1
+#             else:
+#                 low = mid+1
+
+#         else:
+#             if nums[mid] < target <= nums[high]:
+#                 low = mid+1
+#             else:
+#                 high  = mid-1
+
+#     return -1
+            
+# nums = [4,5,6,7,0,1,2]
+# target = 0
+# print(search_rotate_sorted(nums,target))
+
+
+def how_many_rotated(nums):
+    n = len(nums)
 
     low,high = 0,n-1
 
-    while low <= high:
-        mid= (low+high)//2
+    while low < high:
+        mid = (low+high)//2
 
-        if nums[mid] == target:
-            res[1] = mid
+        if nums[mid] > nums[high]:
             low = mid+1
-
-        elif nums[mid] < target:
-            low = mid+1
-
+            
         else:
-            high = mid-1
+            high = mid
 
-    return res
 
-nums = []
-target = 6
-print(first(nums,target))
+    return low
+
+
+
+
+# nums = [3,4,5,1,2]
+nums = [1,2]
+
+print(how_many_rotated(nums))
+
+
+
+
+
+
+
+

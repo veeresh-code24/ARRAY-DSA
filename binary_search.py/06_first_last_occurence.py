@@ -119,3 +119,37 @@ nums = []
 target = 0
 
 print(first_last_occurence(nums,target))'''
+
+'''def lower_bound(arr, target):
+    low, high = 0, len(arr)
+    
+    while low < high:
+        mid = (low + high) // 2
+        
+        if arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid
+            
+    return low
+
+
+def upper_bound(arr, target):
+    low, high = 0, len(arr)
+    
+    while low < high:
+        mid = (low + high) // 2
+        
+        if arr[mid] <= target:
+            low = mid + 1
+        else:
+            high = mid
+            
+    return low
+
+
+def count(arr, target):
+    first = lower_bound(arr, target)
+    last = upper_bound(arr, target)
+    
+    return last - first'''
