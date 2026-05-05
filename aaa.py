@@ -1,164 +1,126 @@
-'''def fun(i,n):
-    if i > n:
-        return 
-    
-    print("Iranna")
-    fun(i+1,n)
-n = 5
-fun(1,n)'''
+# def upper_bound(nums,x):
+#     ans = len(nums)
+#     for i in range(len(nums)):
+#         if nums[i] > x:
+#             ans = i
+#             break
 
-# def fun(i,n):
-#     if i > n:
-#         return 
-#     print(i)
-#     fun(i+1,n)
+#     return ans
 
-# def main():
-#     n = int(input("Enter the number: "))
-#     fun(1,n)
+# # nums = [1,2,2,3]
+# # x = 2
+# nums = [3,5,8,15,19]
+# x = 9
+# print(upper_bound(nums,x))
 
-# if __name__ == '__main__':
-#     main()
+# def insert_position(nums,x):
+#     ans = len(nums)
 
-'''def fun(i,n):
-    if i < 1:
-        return
-    
-    print(i)
-    fun(i-1,n)
+#     low,high = 0, len(nums)-1
 
+#     while low <= high:
+#         mid = (low+high)//2
 
-def main():
-    n = int(input("Enter the number: "))
-    fun(n,n)
+#         if nums[mid] >= x:
+#             ans = mid
+#             high = mid-1
 
-if __name__ == '__main__':
-    main()'''
+#         else:
+#             low = mid+1
 
-# def fun(i,n):
-#     if i < 1:
-#         return 
-#     fun(i-1,n)
-#     print(i)
+#     return ans
 
-# def main():
-#     n = int(input("Enter the number: "))
-#     fun (n,n)
+# # nums = [1,2,2,3]
+# # x = 2
+# # nums = [3,5,8,15,19]
+# # x = 9
+# nums = [1,3,5,6]
+# x = 7
 
-# if __name__ == '__main__':
-#     main()
+# print(insert_position(nums,x))
 
-# def fun(i,n):
-#     if i > n:
-#         return
+# def floor(nums,x):
 
-#     fun(i+1,n)
-#     print(i)
+#     ans = -1
 
-# def main():
-#     n = int(input("Enter thr nmber: "))
-#     fun(1,n)
+#     low,high =0,len(nums)-1
 
-# if __name__ == '__main__':
-#     main()
+#     while low <= high:
+#         mid = (low+high)//2
 
-# def fun(i):
-#     if i == 3:
-#         return
-    
-#     print(i)
-#     i += 1
-#     fun(i)
+#         if nums[mid] <= x:
+#             ans = nums[mid]
+#             low = mid+1
 
-# fun(0)
+#         else:
+#             high = mid-1
 
-# def fun(i):
-#     if i == 0:
-#         return
-#     print("Iranna")
-#     fun (i-1)
+#     return ans
 
-# fun(3)
+# def ceil(nums,x):
 
-# def fun(i,n):
-#     if i == 0:
-#         return 
-    
-#     print(i)
-#     fun(i-1,n)
-# n = 3
-# fun(3,n)
+#     ans = -1
 
-# def fun(i,n):
-#     if i >= n:
-#         return
-    
-#     print("Iranna")
-#     fun(i+1,n)
-# n = 25
-# fun(0,n)
+#     low,high = 0, len(nums)-1
+
+#     while low <= high:
+#         mid = (low+high)//2
+
+#         if nums[mid] >= x:
+#             ans = nums[mid]
+#             high = mid-1
+
+#         else:
+#             low = mid+1
+
+#     return ans
 
 
-# def fun(i,n):
-#     if i > n:
-#         return
-#     print(i)
-#     fun(i+1,n)
-
-# n = 5
-# fun(1,n)
-
-# def fun(i,n):
-#     if i < 1:
-#         return
-#     print(i)
-#     fun(i-1,n)
-# n = 5
-# fun(n,n)
-
-# def fun(i,n):
-#     if i < 1:
-#         return
-#     fun(i-1,n)
-#     print(i)
-
-# n = 5
-# fun(5,n)
-
-# n = 5
-# def fun(i):
-#     if i > n:
-#         return
-    
-#     fun(i+1)
-#     print(i)
-
-# fun(1)
 
 
-def binary_search(nums,target):
+
+# nums =[2,4,6,8,10,12,14]
+# x= 1
+# print(floor(nums,x))
+# print(ceil(nums,x))
+
+def first(nums,target):
     n = len(nums)
+
     low,high = 0,n-1
+    res = [-1,-1]
 
     while low <= high:
         mid = (low+high)//2
 
         if nums[mid] == target:
-            return mid
-        
-        elif nums[mid] > target:
+            res[0] = mid
             high = mid-1
 
-        else:
+        elif nums[mid] < target:
             low = mid+1
 
-    return -1
-
-nums = [3,4,6,7,9,12,16,17]
-target = 17
-print(binary_search(nums,target))
-
-    
+        else:
+            high = mid-1
 
 
+    low,high = 0,n-1
 
+    while low <= high:
+        mid= (low+high)//2
+
+        if nums[mid] == target:
+            res[1] = mid
+            low = mid+1
+
+        elif nums[mid] < target:
+            low = mid+1
+
+        else:
+            high = mid-1
+
+    return res
+
+nums = []
+target = 6
+print(first(nums,target))

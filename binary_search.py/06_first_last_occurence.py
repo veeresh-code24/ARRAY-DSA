@@ -91,6 +91,9 @@ print(first_and_last_position(arr, len(arr), k))'''
 
         else:
             high = mid-1
+            
+    if res[0] = -1:
+    return res
 
     low,high = 0,n-1
 
