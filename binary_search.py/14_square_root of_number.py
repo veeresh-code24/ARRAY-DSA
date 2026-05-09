@@ -24,7 +24,7 @@ def square_of_number(n):
     while low <= high:
         mid = (high+low)//2
 
-        if (mid**mid) <= n:
+        if (mid*mid) <= n:
             ans = mid
             low = mid+1
 
@@ -35,6 +35,7 @@ def square_of_number(n):
 
 
 n = 36
+
 print(square_of_number(n))
 
 
