@@ -141,3 +141,69 @@ bloomday = [7,7,7,7,13,11,12,7]
 m = 2
 k = 3
 print(minimum(bloomday,m,k))
+
+
+# Optimize
+
+
+# Function to check if we can form m bouquets by 'day'
+def is_possible(bloom_days, day, m, k):
+
+    count = 0
+    bouquets = 0
+
+    for bloom in bloom_days:
+
+        if bloom <= day:
+            count += 1
+
+            if count == k:
+                bouquets += 1
+                count = 0
+
+        else:
+            count = 0
+
+    return bouquets >= m
+
+
+# Main function to find minimum day
+def rose_garden(bloom_days, k, m):
+
+    if m * k > len(bloom_days):
+        return -1
+
+    low = min(bloom_days)
+    high = max(bloom_days)
+
+    answer = -1
+
+    while low <= high:
+
+        mid = (low + high) // 2
+
+        possible = is_possible(bloom_days, mid, m, k)
+
+        if possible:
+            answer = mid
+            high = mid - 1
+
+        else:
+            low = mid + 1
+
+    return answer
+
+
+# Driver code
+bloom_days = [7, 7, 7, 7, 13, 11, 12, 7]
+
+k = 3
+m = 2
+
+result = rose_garden(bloom_days, k, m)
+
+if result == -1:
+    print("We cannot make m bouquets.")
+
+else:
+    print("We can make bouquets on day", result)
