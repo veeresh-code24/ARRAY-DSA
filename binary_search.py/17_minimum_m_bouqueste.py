@@ -147,7 +147,7 @@ print(minimum(bloomday,m,k))
 
 
 # Function to check if we can form m bouquets by 'day'
-def is_possible(bloom_days, day, m, k):
+'''def is_possible(bloom_days, day, m, k):
 
     count = 0
     bouquets = 0
@@ -206,4 +206,48 @@ if result == -1:
     print("We cannot make m bouquets.")
 
 else:
-    print("We can make bouquets on day", result)
+    print("We can make bouquets on day", result)'''
+
+
+def is_possible(bloomday,day,m,k):
+
+    count = 0
+    bouqe = 0
+    for bloom in bloomday:
+        if bloom <= day:
+            count += 1
+            if count == k:
+                bouqe += 1
+                count = 0
+        else:
+            count = 0
+
+    return bouqe  >= m
+
+
+def rose_garden(bloomday,m,k):
+    if m*k > len(bloomday):
+        return -1
+    
+    low = min(bloomday)
+    high = max(bloomday)
+    ans = -1
+
+    while low <= high:
+        mid = (low+high)//2
+
+        possible = is_possible(bloomday,mid,m,k)
+
+        if possible:
+            ans = mid
+            high = mid-1
+
+        else:
+            low = mid+1
+
+    return ans
+
+bloomday = [7, 7, 7, 7, 13, 11, 12, 7]
+k = 4
+m = 2
+print(rose_garden(bloomday,m,k))
