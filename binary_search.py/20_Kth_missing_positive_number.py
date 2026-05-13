@@ -36,8 +36,9 @@ def kth_missing_positive(arr,k):
 
         else:
             high = mid-1
-
-    return low+1
+            
+# Final k-th missing number calculation
+    return k+high+1
 
 arr = [2,3,4,7,11]
 k = 5
