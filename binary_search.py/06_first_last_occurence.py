@@ -153,3 +153,36 @@ def count(arr, target):
     last = upper_bound(arr, target)
     
     return last - first'''
+
+
+# Optimization Better Version
+
+'''def findBound(nums, target, isFirst):
+    low, high = 0, len(nums) - 1
+    ans = -1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if nums[mid] == target:
+            ans = mid
+            if isFirst:
+                high = mid - 1
+            else:
+                low = mid + 1
+
+        elif nums[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return ans
+
+
+def searchRange(nums, target):
+    first = findBound(nums, target, True)
+    last = findBound(nums, target, False)
+    return [first, last]
+
+
+print(searchRange([5,7,7,8,8,10], 5))'''
