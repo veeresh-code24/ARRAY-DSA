@@ -299,7 +299,7 @@ nums= [5, 5, 5, 5, 5, 5]
 target = 5
 print(count(nums,target))'''
 
-def searchRotatedSorted(nums,target):
+'''def searchRotatedSorted(nums,target):
     n = len(nums)
 
     for i in range(n):
@@ -347,7 +347,39 @@ def searchRotatedSorted(nums,target):
 # target = 2
 nums = [2,5,6,0,0,1,2]
 target = 3
-print(searchRotatedSorted(nums,target)) 
+print(searchRotatedSorted(nums,target)) '''
+
+def Kth_element_sorted(a,b,k):
+    n = len(a)
+    m = len(b)
+    i= 0 
+    j = 0
+    arr = []
+    while i < n and j <m:
+        if a[i] <= b[j]:
+            arr.append(a[i])
+            i += 1
+
+        else:
+            arr.append(b[j])
+            j += 1
+
+    while i < n:
+        arr.append(a[i])
+        i += 1
+
+    while j < m:
+        arr.append(b[j])
+        j += 1
+
+    for i in range(len(arr)):
+        if i == k-1:
+            return arr[i]
+
+a = [2, 3, 6, 7, 9]
+b = [1, 4, 8, 10]
+k = 5
+print(Kth_element_sorted(a,b,k))
 
 
     
