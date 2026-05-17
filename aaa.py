@@ -322,7 +322,7 @@ m = 2
 k = 3
 print(no_of_day(bloomday,m,k))'''
 
-def make_m_boucquete(bloomday,m,k,day):
+'''def make_m_boucquete(bloomday,m,k,day):
 
     count = 0
     bouq = 0
@@ -370,8 +370,62 @@ def days_in_bloom(bloomday,m,k):
 bloomday = [1,10,3,10,2]
 m = 3
 k = 1
-print(days_in_bloom(bloomday,m,k))
+print(days_in_bloom(bloomday,m,k))'''
 
+# import math
+'''def findSmallestDivisior(nums,threshold):
+    n = len(nums)
+
+    for thre in range(1,max(nums)+1):
+        divi = 0
+        for num in nums:
+            divi += math.ceil(num/thre)
+
+        if divi <= threshold:
+            return thre
+
+
+# nums = [1,2,5,9]
+# threshold = 6
+nums = [44,22,33,11,1]
+threshold = 5
+print(findSmallestDivisior(nums,threshold))'''
+
+import math
+def findSmallestDivisior(nums,threshold):
+    n = len(nums)
+
+    low,high = 1,max(nums)
+
+    while low <= high:
+        mid = (low+high)//2
+
+        print(f"low={low}, mid={mid}, high={high}")
+
+        divisor = 0
+
+        for num in nums:
+            divisor += math.ceil(num/mid)
+            
+        if divisor <= threshold:
+            ans = mid
+            high = mid-1
+
+        else:
+            low = mid+1
+
+        print(f"low={low}, mid={mid}, high={high}")
+
+
+        
+    return low
+
+
+nums = [1,2,5,9]
+threshold = 6
+# nums = [44,22,33,11,1]
+# threshold = 5
+print(findSmallestDivisior(nums,threshold))
 
 
 
