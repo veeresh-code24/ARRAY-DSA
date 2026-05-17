@@ -135,7 +135,7 @@ print(single_element(nums))'''
 nums = [1,2,1,3,5,6,4]
 print(peak_element(nums))'''
 
-def peak_element(nums):
+'''def peak_element(nums):
     n = len(nums)
 
     if n == 1:
@@ -165,18 +165,214 @@ def peak_element(nums):
 nums = [1,2,1,3,5,6,4]
 print(peak_element(nums))
 
-
-
-
-
-
-
-    
-
-
-
 # nums = [1,2,1,3,5,6,4]
-# print(peak_element(nums))
+# print(peak_element(nums))'''
+
+
+# def find_square(n):
+#     ans = -1
+
+#     for i in range(1,n+1):
+#         if i *i <= n:
+#             ans = i
+
+#         else:
+#             break
+
+#     return ans
+# n = 28
+# print(find_square(n))
+
+'''def find_square(n):
+    low,high = 1,n
+    ans = -1
+
+    while low <= high:
+        mid = (low+high)//2
+        
+        if mid*mid <= n:
+            ans = mid
+            low = mid+1
+        
+
+        else:
+            high = mid-1
+
+    return high
+
+n = 36
+print(find_square(n))'''
+
+
+'''def nthRoot_number(n,m):
+
+    for i in range(1,m):
+        if i**n == m:
+            return i
+        
+        elif i**n > m:
+            break
+
+    return -1
+
+
+n = 3
+m = 8
+print(nthRoot_number(n,m))
+
+def nthRoot_number(n,m):
+    low,high = 1,m
+
+    while low <= high:
+        mid = (low+high)//2
+
+        if mid**n == m:
+            return mid
+        
+        elif mid**n < m:
+            low = mid+1
+
+        else:
+            high = mid-1
+
+    return -1
+
+n = 3
+m = 27
+print(nthRoot_number(n,m))'''
+
+'''import math
+def koko_eating_banana(piles,h):
+
+    for k in range(1,max(piles)):
+        total_hours = 0
+        for pile in piles:
+            total_hours += math.ceil(pile/k)
+
+        if total_hours <= h:
+            return k
+
+
+piles = [3,6,7,11]
+h = 8
+print(koko_eating_banana(piles,h))'''
+
+'''import math
+def koko_eating_banana(piles,h):
+    low,high = 1,max(piles)
+
+    while low <= high:
+        mid = (low+high)//2
+
+        total_hours = 0
+
+        for pile in piles:
+            total_hours += math.ceil(pile/mid)
+
+            if total_hours <= h:
+                high = mid-1
+
+            else:
+                low = mid+1
+
+    return low
+
+
+piles = [3,6,7,11]
+h = 8
+print(koko_eating_banana(piles,h))'''
+
+'''def make_m_boucquete(bloomday,m,k,day):
+
+    boucq = 0
+    count = 0
+
+    for i in range(len(bloomday)):
+        if bloomday[i] <= day:
+            count += 1
+
+            if count == k:
+                boucq += 1
+                count = 0
+
+        else:
+            count = 0
+
+    return boucq >= m
+        
+def no_of_day(bloomday,m,k):
+    
+    if m * k > len(bloomday):
+        return -1
+    low = min(bloomday)
+    high = max(bloomday)
+    
+    for day in range(low,high+1):
+
+        possible = make_m_boucquete(bloomday,m,k,day)
+
+        if possible:
+            return day
+        
+    return -1
+
+
+bloomday = [7,7,7,7,12,7,7]
+m = 2
+k = 3
+print(no_of_day(bloomday,m,k))'''
+
+def make_m_boucquete(bloomday,m,k,day):
+
+    count = 0
+    bouq = 0
+    for bloom in bloomday:
+        if bloom <= day:
+            count += 1
+
+            if count == k:
+                bouq += 1
+                count = 0
+
+        else:
+            count = 0
+
+    return bouq >= m
+
+def days_in_bloom(bloomday,m,k):
+
+    total_flower = m*k
+
+    if total_flower > len(bloomday):
+        return -1
+    
+    low = min(bloomday)
+    high = max(bloomday)
+
+    while low <= high:
+        mid = (low+high)//2
+
+        if make_m_boucquete(bloomday,m,k,mid):
+            ans = mid
+            high = mid-1
+
+        else:
+            low = mid+1
+
+    return ans
+
+# bloomday = [7,7,7,7,12,7,7]
+# m = 2
+# k = 3
+# bloomday = [1,10,3,10,2]
+# m = 3
+# k = 2
+bloomday = [1,10,3,10,2]
+m = 3
+k = 1
+print(days_in_bloom(bloomday,m,k))
+
+
 
 
 
