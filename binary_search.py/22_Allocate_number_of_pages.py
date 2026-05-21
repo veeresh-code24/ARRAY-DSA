@@ -1,4 +1,4 @@
-'''def count_student(arr,pages):
+def count_student(arr,pages):
     n = len(arr)
     student = 1
     pages_student = 0
@@ -27,11 +27,11 @@ def findPages(arr,n,m):
 
     return low
 
-arr = [25, 46, 28, 49, 24]
-n = 5
-m = 4
+arr = [12, 34, 67, 90]
+n = 4
+m = 2
 
-print(findPages(arr,n,m))'''
+print(findPages(arr,n,m))
 
 
 # Time Complexity: O(N * (sum(arr[])-max(arr[])+1)), where N = size of the array, sum(arr[]) = sum of all array elements, max(arr[])
