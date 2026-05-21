@@ -1,352 +1,352 @@
-# Array convert into LL. and  traversal Linked List
+# # Array convert into LL. and  traversal Linked List
 
-'''class Node:
-    def __init__(self,data):
-        self.data = data
-        self.next = None
+# '''class Node:
+#     def __init__(self,data):
+#         self.data = data
+#         self.next = None
 
-
-
-def convertArrayLL(arr):
-
-    head = Node(arr[0])
-
-    mover = head
-
-    for i in range(1,len(arr)):
-        temp = Node(arr[i])
-
-        mover.next = temp
-
-        mover = temp
-
-    return head
-
-def main():
-
-    arr = [12,4,6,8,10]
-
-    head = convertArrayLL(arr)
-
-    temp = head
-
-    while temp != None:
-        print(temp.data, end = " ")
-        temp = temp.next
-
-
-
-    # print(head.next.next.next.next.data)
-
-if __name__ == '__main__':
-    main()'''
-
-
-'''   head ─┐
-      ↓
-temp ─┘
-     [12 | • ] → [5 | • ] → [6 | • ] → [8 | None]'''
-
-
-
-
-# LinkedList Length
-
-class Node:
-    def __init__(self,data):
-        self.data = data
-        self.next = None
 
 
 # def convertArrayLL(arr):
 
-    # head = Node(arr[0])
-    # mover = head
+#     head = Node(arr[0])
 
-    # for i in range(1,len(arr)):
-        # temp = Node(arr[i])
-        # mover.next = temp
-        # mover = temp
+#     mover = head
 
-    # return head
+#     for i in range(1,len(arr)):
+#         temp = Node(arr[i])
 
-def lengthofLL(head):
+#         mover.next = temp
 
-    cnt = 0
-    temp = head
+#         mover = temp
 
-    while temp != None:
-        cnt += 1
+#     return head
 
-        temp = temp.next
+# def main():
 
-    return cnt
+#     arr = [12,4,6,8,10]
 
-def main():
-    arr = [2,4,6,8]
+#     head = convertArrayLL(arr)
 
-    head = convertArrayLL(arr)
+#     temp = head
 
-    print(lengthofLL(head))
+#     while temp != None:
+#         print(temp.data, end = " ")
+#         temp = temp.next
 
-if __name__ == '__main__':
-    main()
 
 
+#     # print(head.next.next.next.next.data)
 
+# if __name__ == '__main__':
+#     main()'''
 
-# Array TO LinkedList
 
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+# '''   head ─┐
+#       ↓
+# temp ─┘
+#      [12 | • ] → [5 | • ] → [6 | • ] → [8 | None]'''
 
 
-# Convert Array to Linked List
-def convertArr2LL(arr):
 
-    head = Node(arr[0])
 
-    mover = head
+# # LinkedList Length
 
-    for i in range(1, len(arr)):
+# class Node:
+#     def __init__(self,data):
+#         self.data = data
+#         self.next = None
 
-        temp = Node(arr[i])
 
-        mover.next = temp
+# # def convertArrayLL(arr):
 
-        mover = temp
+#     # head = Node(arr[0])
+#     # mover = head
 
-    return head
+#     # for i in range(1,len(arr)):
+#         # temp = Node(arr[i])
+#         # mover.next = temp
+#         # mover = temp
 
+#     # return head
 
-# Print Linked List
-def printLL(head):
+# def lengthofLL(head):
 
-    while head != None:
+#     cnt = 0
+#     temp = head
 
-        print(head.data, end=" ")
+#     while temp != None:
+#         cnt += 1
 
-        head = head.next
+#         temp = temp.next
 
-    print()
+#     return cnt
 
+# def main():
+#     arr = [2,4,6,8]
 
-# Remove Head Node
-def removeHead(head):
+#     # head = convertArrayLL(arr)
 
-    # If linked list is empty
-    if head == None:
-        return head
+#     print(lengthofLL(head))
 
-    # Temporary node
-    temp = head
+# if __name__ == '__main__':
+#     main()
 
-    # Move head to next node
-    head = head.next
 
-    # Delete old head
-    del temp
 
-    return head
 
+# # Array TO LinkedList
 
-# Main Function
-def main():
+# class Node:
+#     def __init__(self, data):
+#         self.data = data
+#         self.next = None
 
-    arr = [12, 5, 8, 7]
 
-    head = convertArr2LL(arr)
+# # Convert Array to Linked List
+# def convertArr2LL(arr):
 
-    print("Before removing head:")
-    printLL(head)
+#     head = Node(arr[0])
 
-    head = removeHead(head)
+#     mover = head
 
-    print("After removing head:")
-    printLL(head)
+#     for i in range(1, len(arr)):
 
+#         temp = Node(arr[i])
 
-if __name__ == '__main__':
-    main()
+#         mover.next = temp
 
-'''class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+#         mover = temp
 
+#     return head
 
-# Convert Array to Linked List
-def convertArr2LL(arr):
 
-    head = Node(arr[0])
+# # Print Linked List
+# def printLL(head):
 
-    mover = head
+#     while head != None:
 
-    for i in range(1, len(arr)):
+#         print(head.data, end=" ")
 
-        temp = Node(arr[i])
+#         head = head.next
 
-        mover.next = temp
+#     print()
 
-        mover = temp
 
-    return head
+# # Remove Head Node
+# def removeHead(head):
 
+#     # If linked list is empty
+#     if head == None:
+#         return head
 
-# Print Linked List
-def printLL(head):
+#     # Temporary node
+#     temp = head
 
-    while head != None:
+#     # Move head to next node
+#     head = head.next
 
-        print(head.data, end=" ")
+#     # Delete old head
+#     del temp
 
-        head = head.next
+#     return head
 
-    print()
 
+# # Main Function
+# def main():
 
-# Remove Tail Node
-def removeTail(head):
+#     arr = [12, 5, 8, 7]
 
-    # Empty linked list OR single node
-    if head == None or head.next == None:
-        return None
+#     head = convertArr2LL(arr)
 
-    temp = head
+#     print("Before removing head:")
+#     printLL(head)
 
-    # Stop at second last node
-    while temp.next.next != None:
+#     head = removeHead(head)
 
-        temp = temp.next
+#     print("After removing head:")
+#     printLL(head)
 
-    # Remove last node
-    temp.next = None
 
-    return head
+# if __name__ == '__main__':
+#     main()
 
+# '''class Node:
+#     def __init__(self, data):
+#         self.data = data
+#         self.next = None
 
-# Main
-def main():
 
-    arr = [12, 5, 6, 8]
+# # Convert Array to Linked List
+# def convertArr2LL(arr):
 
-    head = convertArr2LL(arr)
+#     head = Node(arr[0])
 
-    print("Before removing tail:")
-    printLL(head)
+#     mover = head
 
-    head = removeTail(head)
+#     for i in range(1, len(arr)):
 
-    print("After removing tail:")
-    printLL(head)
+#         temp = Node(arr[i])
 
+#         mover.next = temp
 
-if __name__ == '__main__':
-    main()'''
+#         mover = temp
 
+#     return head
 
 
-'''class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+# # Print Linked List
+# def printLL(head):
 
+#     while head != None:
 
-# Convert Array to Linked List
-def convertArr2LL(arr):
+#         print(head.data, end=" ")
 
-    head = Node(arr[0])
+#         head = head.next
 
-    mover = head
+#     print()
 
-    for i in range(1, len(arr)):
 
-        temp = Node(arr[i])
+# # Remove Tail Node
+# def removeTail(head):
 
-        mover.next = temp
+#     # Empty linked list OR single node
+#     if head == None or head.next == None:
+#         return None
 
-        mover = temp
+#     temp = head
 
-    return head
+#     # Stop at second last node
+#     while temp.next.next != None:
 
+#         temp = temp.next
 
-# Print Linked List
-def printLL(head):
+#     # Remove last node
+#     temp.next = None
 
-    temp = head
+#     return head
 
-    while temp != None:
 
-        print(temp.data, end=" ")
+# # Main
+# def main():
 
-        temp = temp.next
+#     arr = [12, 5, 6, 8]
 
-    print()
+#     head = convertArr2LL(arr)
 
+#     print("Before removing tail:")
+#     printLL(head)
 
-# Delete Kth Node
-def removeK(head, k):
+#     head = removeTail(head)
 
-    # Empty linked list
-    if head == None:
-        return head
+#     print("After removing tail:")
+#     printLL(head)
 
-    # Delete first node
-    if k == 1:
 
-        temp = head
+# if __name__ == '__main__':
+#     main()'''
 
-        head = head.next
 
-        del temp
 
-        return head
+# '''class Node:
+#     def __init__(self, data):
+#         self.data = data
+#         self.next = None
 
-    cnt = 0
 
-    temp = head
+# # Convert Array to Linked List
+# def convertArr2LL(arr):
 
-    prev = None
+#     head = Node(arr[0])
 
-    while temp != None:
+#     mover = head
 
-        cnt += 1
+#     for i in range(1, len(arr)):
 
-        # Found kth node
-        if cnt == k:
+#         temp = Node(arr[i])
 
-            prev.next = temp.next
+#         mover.next = temp
 
-            del temp
+#         mover = temp
 
-            break
+#     return head
 
-        prev = temp
 
-        temp = temp.next
+# # Print Linked List
+# def printLL(head):
 
-    return head
+#     temp = head
 
+#     while temp != None:
 
-# Main Function
-def main():
+#         print(temp.data, end=" ")
 
-    arr = [12, 5, 8, 7]
+#         temp = temp.next
 
-    head = convertArr2LL(arr)
+#     print()
 
-    print("Before deleting kth node:")
-    printLL(head)
 
-    k = 3
+# # Delete Kth Node
+# def removeK(head, k):
 
-    head = removeK(head, k)
+#     # Empty linked list
+#     if head == None:
+#         return head
 
-    print("After deleting kth node:")
-    printLL(head)
+#     # Delete first node
+#     if k == 1:
 
+#         temp = head
 
-if __name__ == '__main__':
-    main()'''
+#         head = head.next
+
+#         del temp
+
+#         return head
+
+#     cnt = 0
+
+#     temp = head
+
+#     prev = None
+
+#     while temp != None:
+
+#         cnt += 1
+
+#         # Found kth node
+#         if cnt == k:
+
+#             prev.next = temp.next
+
+#             del temp
+
+#             break
+
+#         prev = temp
+
+#         temp = temp.next
+
+#     return head
+
+
+# # Main Function
+# def main():
+
+#     arr = [12, 5, 8, 7]
+
+#     head = convertArr2LL(arr)
+
+#     print("Before deleting kth node:")
+#     printLL(head)
+
+#     k = 3
+
+#     head = removeK(head, k)
+
+#     print("After deleting kth node:")
+#     printLL(head)
+
+
+# if __name__ == '__main__':
+#     main()'''
