@@ -173,11 +173,52 @@ def RemoveHead(head):
 
 #     return head
 
-def insertValue(head,val):
+# def insertHead(head,val):
 
-    temp = Node(val,head)
+    # temp = Node(val,head)
     # temp.next = head
-    return temp
+    # return temp
+    # temp = Node(val)
+    # temp.next = head
+    # return temp
+# def insertTail(head,val):
+
+#     if head == None:
+#         return Node(val)
+    
+#     temp = head
+
+#     while temp.next != None:
+#         temp = temp.next
+
+#     temp.next = Node(val)
+#     return head
+
+def insertPosition(head,val,k):
+
+    if head == None:
+        # temp = Node(val,head)
+        return Node(val,head)
+    
+    if k == 1:
+        # temp = Node(val,head)
+        return Node(val,head)
+    
+    cnt = 0
+    temp = head
+    while temp != None:
+        cnt += 1
+
+        if cnt == (k-1):
+            x = Node(val,temp.next)
+            temp.next = x
+            break
+
+        temp = temp.next
+
+    return head
+    
+
 
 
 def main():
@@ -192,7 +233,9 @@ def main():
     # head = RemoveTail(head)
     # print(head)
     # head = RemoveKthElement(head,2)
-    head = insertValue(head,100)
+    # head = insertValue(head,100)
+    # head = insertTail(head,100)
+    head = insertPosition(head,100,5)
     traverseArray(head)
     
 
