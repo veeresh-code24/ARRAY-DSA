@@ -52,38 +52,75 @@ def DeleteTail(head):
 # Delete Kth Element
 
 def deleteKthElement(head,k):
+    # if head == None:
+    #     return None
+    
+    # cnt = 0
+    # temp = head
+
+    # while temp!= None:
+    #     cnt += 1
+
+    #     if cnt == k:
+    #         break
+    #     temp = temp.next
+    
+    # if temp == None:   # k greater than length
+    #     return head
+    
+    # prev = temp.back
+    # front = temp.next
+
+    # #  Only one node in DLL
+    # if prev == None and front == None:
+    #     return None
+    
+    # # Delete head
+    # elif prev == None:
+    #     return DeleteHead(head)
+    
+    # # Delete tail
+    # elif front == None:
+    #     return  DeleteTail(head)
+    
+    # # Delete Middle Node
+    # prev.next = front
+    # front.back = prev
+
+    # temp.next = None
+    # temp.back = None
+
+    # return head
+
     if head == None:
         return None
     
-    cnt = 0
     temp = head
+    cnt = 0
 
-    while temp!= None:
+    while temp != None:
         cnt += 1
 
         if cnt == k:
             break
         temp = temp.next
-    
-    if temp == None:   # k greater than length
+
+    if temp == None:
         return head
     
     prev = temp.back
     front = temp.next
 
-    #  Only one node in DLL
     if prev == None and front == None:
         return None
     
-    # Delete head
     elif prev == None:
         return DeleteHead(head)
+
     
-    # Delete tail
     elif front == None:
-        return  DeleteTail(head)
+        return DeleteTail(head)
     
-    # Delete Middle Node
     prev.next = front
     front.back = prev
 
