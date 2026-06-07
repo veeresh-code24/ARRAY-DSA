@@ -1,23 +1,25 @@
 # Brute Force
 
-class Node:
+'''class Node:
     def __init__(self,data,next=None):
         self.data = data
         self.next = next
 
 class Solution:
-    def detectLoop(self,head):
+    def detectCycle(self,head):
+        visited = {}
         temp = head
-        nodemap = {}
+
         while temp != None:
-            if temp in nodemap:
-                return True
+            if temp in visited:
+                return temp
             
-            nodemap[temp] = 1
+            visited[temp] = 1
             temp = temp.next
 
-        return False
+        return None
     
+
 if __name__ == '__main__':
     head = Node(1)
     second = Node(2)
@@ -30,40 +32,47 @@ if __name__ == '__main__':
     third.next = fourth
     fourth.next = fifth
 
-    fifth.next = third
 
-    sol = Solution()
+    fifth.next = second
 
-    if sol.detectLoop(head):
-        print("Loop detected in the Linked List")
-    else:
-        print("No loop detected in the linked list")
+sol = Solution()
+startnode = sol.detectCycle(head)
+
+if startnode:
+    print("Cycle starts at node with value",startnode.data)
+else:
+    print("No Cycle found")'''
 
 
-
-# Optimization 
+# Optimization Approa
 
 class Node:
     def __init__(self,data,next=None):
         self.data = data
         self.next = next
 
+class Solution():
 
-class Solution:
     def DetectLoop(self,head):
         slow = head
         fast = head
 
         while fast != None and fast.next != None:
             slow = slow.next
-            fast  = fast.next.next
+            fast = fast.next.next
 
             if slow == fast:
-                return True
-            
-        return False
-    
+                slow = head
 
+
+                while slow != fast:
+                    slow = slow.next
+                    fast = fast.next
+
+                return slow
+        
+        return None
+    
 if __name__ == "__main__":
     head = Node(1)
     second = Node(2)
@@ -72,21 +81,23 @@ if __name__ == "__main__":
     fifth = Node(5)
 
     head.next = second
-    second.next = third 
-    third.next = fourth 
+    second.next = third
+    third.next = fourth
     fourth.next = fifth
 
-    fifth.next = second
+    fifth.second = fifth
+    
 
-    sol = Solution()
+sol =  Solution()
+startNode =sol.DetectLoop(head)
 
-    if sol.DetectLoop(head):
-        print("Loop is Found in Linked List")
-    else:
-        print("No loop is found Linked List")
-        
+if startNode:
+    print("Staring point of loop Found", startNode.data)
 
+else:
+    print("Starting point Not found")
 
+    
 
 
 
