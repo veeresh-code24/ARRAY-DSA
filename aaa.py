@@ -161,6 +161,54 @@ def main():
 if __name__ == '__main__':
     main()'''
 
+# class Node:
+#     def __init__(self,data,next=None):
+#         self.data = data
+#         self.next = next
+
+
+# class Solution:
+#     def CheckeLL_in_Loop(self,head):
+#         if head == None or head.next == None:
+#             return None
+        
+#         slow = head
+#         fast = head
+
+#         while fast != None and fast.next != None:
+#             slow = slow.next
+#             fast = fast.next.next
+
+#             if slow == fast:
+#                 return True
+            
+#         return False
+            
+
+# if __name__ == '__main__':
+#     head = Node(1)
+#     second = Node(2)
+#     third = Node(3)
+#     fourth = Node(4)
+#     fifth = Node(5)
+
+#     head.next = second
+#     second.next = third
+#     third.next = fourth
+#     fourth.next = fifth
+
+#     # fifth.next = second
+#     # third.next = second
+
+# sol = Solution()
+# startNode = sol.CheckeLL_in_Loop(head)
+
+# if startNode:
+#     print("Loop is present in linkedList")
+# else:
+#     print("Loop is not in linkedList")
+
+
 class Node:
     def __init__(self,data,next=None):
         self.data = data
@@ -169,19 +217,36 @@ class Node:
 
 class Solution:
     def CheckeLL_in_Loop(self,head):
-        visited = []
-        temp = head
+        if head == None or head.next == None:
+            return None
+        
+        slow = head
+        fast = head
 
-        while temp != None:
-            if temp in visited:
-                return True
+        while fast != None and fast.next != None:
+            slow = slow.next
+            fast = fast.next.next
+
+            if slow == fast:
+                return sol. CountLL(slow,fast)
             
-            # visited[temp] = 1
-            visited.append(temp)
-            temp = temp.next
 
-        return False
+    def CountLL(self,slow,fast):
 
+        fast = fast.next
+        cnt = 1
+
+        while slow != fast:
+            cnt += 1
+            fast = fast.next
+
+        return cnt
+
+        
+
+
+        
+        
 
 if __name__ == '__main__':
     head = Node(1)
@@ -195,12 +260,13 @@ if __name__ == '__main__':
     third.next = fourth
     fourth.next = fifth
 
-    # fifth.next = second
+    fifth.next = second
+    # third.next = second
 
 sol = Solution()
 startNode = sol.CheckeLL_in_Loop(head)
 
 if startNode:
-    print("Loop is present in linkedList")
+    print("Loop is present in linkedList",startNode)
 else:
     print("Loop is not in linkedList")
