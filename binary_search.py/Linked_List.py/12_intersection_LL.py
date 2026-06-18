@@ -1,11 +1,11 @@
 class Node:
-    def __init__(self, data):
+    def __init__(self,data,next=None):
         self.data = data
-        self.next = None
+        self.next = next
 
 
 class Solution:
-    def IntersectionLL(self, headA, headB):
+    def IntersectionLL(self,headA,headB):
 
         tempA = headA
 
@@ -13,40 +13,45 @@ class Solution:
             tempB = headB
 
             while tempB:
-                if tempA == tempB:  # Same node address
+                if tempA == tempB:
                     return tempA
 
                 tempB = tempB.next
 
-            tempA = tempA.next
+            tempA = tempA.nexts
 
         return None
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
-    # Common part
-    common1 = Node(8)
-    common2 = Node(10)
+        # Common part
+        common1 = Node(8)  
+        common2 = Node(10)
 
-    common1.next = common2
+        common1.next = common2
 
-    # First Linked List: 1 -> 2 -> 8 -> 10
-    headA = Node(1)
-    secondA = Node(2)
+        # First Linked List: 1 -> 2 -> 8 -> 10
 
-    headA.next = secondA
-    secondA.next = common1
+        headA = Node(1)
+        secondA = Node(2)
 
-    # Second Linked List: 3 -> 8 -> 10
-    headB = Node(3)
+        headA.next = secondA
+        secondA.next = common1
 
-    headB.next = common1
+        # Second Linked List: 3 -> 8 -> 10
+        headB = Node(3)
 
-    sol = Solution()
-    intersectionNode = sol.IntersectionLL(headA, headB)
+        headB.next = common1
 
-    if intersectionNode:
-        print("Intersection Node:", intersectionNode.data)
-    else:
-        print("No Intersection")
+        sol = Solution()
+        intersectionNode = sol.IntersectionLL(headA,headB)
+
+        if intersectionNode:
+            print("Intersection Node:", intersectionNode.data)
+        else:
+            print("No Intersection")
+    
+
+
+

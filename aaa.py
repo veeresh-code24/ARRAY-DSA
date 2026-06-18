@@ -228,7 +228,9 @@ class Solution:
             fast = fast.next.next
 
             if slow == fast:
-                return sol. CountLL(slow,fast)
+                return self. CountLL(slow,fast)
+            
+        return 0
             
 
     def CountLL(self,slow,fast):
