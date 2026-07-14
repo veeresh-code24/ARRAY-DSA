@@ -209,7 +209,7 @@ if __name__ == '__main__':
 #     print("Loop is not in linkedList")
 
 
-class Node:
+'''class Node:
     def __init__(self,data,next=None):
         self.data = data
         self.next = next
@@ -271,4 +271,153 @@ startNode = sol.CheckeLL_in_Loop(head)
 if startNode:
     print("Loop is present in linkedList",startNode)
 else:
-    print("Loop is not in linkedList")
+    print("Loop is not in linkedList")'''
+
+# def largest_ele(nums):
+#     nums.sort()
+
+#     return nums[-1]
+
+# nums = [10,2,1,200,2,3,100,3,4,5]
+# print(largest_ele(nums))
+
+# def largest_nums(nums):
+
+#     largest = -1
+
+#     for i in range(len(nums)):
+#         if nums[i] > largest:
+#             largest = nums[i]
+
+#     return largest
+
+
+# nums = [200,1,2,3,4,23,21]
+# print(largest_nums(nums))
+
+'''def second_largest(nums):
+    nums.sort()
+    first_lar = nums[-1]
+
+    for i in range(len(nums)-1,-1):
+        if nums[i] != first_lar:
+            return nums[i]
+        
+nums = [2,46,21,12,45,3]
+print(second_largest(nums))
+
+def second_largest(nums):
+
+    first_lar = second_lar = float('-inf')
+
+    for i in range(len(nums)):
+        if nums[i] > first_lar:
+            first_lar = nums[i]
+
+
+    for i in range(len(nums)):
+        if nums[i] != first_lar and nums[i] > second_lar:
+            second_lar = nums[i]
+
+    return second_lar
+        
+nums = [101,21,34,1,2,4,53,100,200]
+print(second_largest(nums))'''
+
+'''def second_largest(nums):
+    first_lar = second_lar = float('-inf')
+
+    for i in range(len(nums)):
+        if nums[i] > first_lar:
+            second_lar = first_lar
+            first_lar = nums[i]
+
+        elif nums[i] != first_lar and nums[i] > second_lar:
+            second_lar = nums[i]
+
+    return second_lar
+
+
+nums = [101,21,34,1,2,4,53,100,200,4000]
+print(second_largest(nums))'''
+
+'''def sorted_array(nums):
+    count = 0
+
+    for i in range(len(nums)):
+        if nums[i] > nums[(i+1)%len(nums)]:
+            count += 1
+        
+    return count <= 1
+
+
+nums = [1,2,1,3]
+print(sorted_array(nums))'''
+
+# def sorted_arr(nums):
+#     count = 0
+
+#     for i in range(1,len(nums):
+#         if nums[i] > nums[i+1]%len(nums):
+#             count += 1
+
+#     return count == 1
+
+
+
+
+# nums = [3,4,5,1,2]
+# print(sorted_arr(nums))
+
+'''def remove_duplicate(nums):
+    n = len(nums)
+
+    st = set()
+    for i in range(n):
+        st.add(nums[i])
+
+    index = 0
+    for i in st:
+        nums[index] = i
+        index += 1
+
+    return index
+
+nums = [0 ,0, 3, 3,5, 6, 6]
+print(remove_duplicate(nums))'''
+
+def remove_duplicate(nums):
+    n = len(nums)
+
+    i = 0
+    j = 1
+    while j < n:
+        if nums[j] != nums[i]:
+            nums[i+1] = nums[j]
+            j += 1
+            i += 1
+
+        else:
+            j += 1
+
+        
+    return nums
+
+
+
+nums = [0 ,0, 3, 3,5, 6, 6]
+print(remove_duplicate(nums))
+
+
+
+
+
+
+
+
+
+
+
+
+
+

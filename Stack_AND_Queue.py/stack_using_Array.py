@@ -1,4 +1,4 @@
-# Converting Stack using Array
+# Implement Stack using Array
 
 '''class ArrayStack:
     def __init__(self,size=1000):
