@@ -386,32 +386,139 @@ print(sorted_array(nums))'''
 nums = [0 ,0, 3, 3,5, 6, 6]
 print(remove_duplicate(nums))'''
 
-def remove_duplicate(nums):
-    n = len(nums)
+# def remove_duplicate(nums):
+#     n = len(nums)
 
-    i = 0
-    j = 1
-    while j < n:
-        if nums[j] != nums[i]:
-            nums[i+1] = nums[j]
-            j += 1
-            i += 1
+#     i = 0
+#     j = 1
+#     while j < n:
+#         if nums[j] != nums[i]:
+#             nums[i+1] = nums[j]
+#             j += 1
+#             i += 1
 
-        else:
-            j += 1
+#         else:
+#             j += 1
 
         
-    return nums
+#     return nums
 
 
 
-nums = [0 ,0, 3, 3,5, 6, 6]
-print(remove_duplicate(nums))
+# nums = [0 ,0, 3, 3,5, 6, 6]
+# print(remove_duplicate(nums))
+
+'''def fun():
+    print(1)
+
+    fun()
+
+fun()'''
+
+'''cnt = 0
+def fun():
+    global cnt
+    if cnt > 10:
+        return 
+    print(cnt)
+    cnt += 1
+
+    fun()
+
+fun()'''
+
+# def fun(cnt):
+#     if cnt > 10:
+#         return 
+    
+#     print(cnt)
+#     fun(cnt+1)
+
+# fun(0)
+
+# def fun(i,n):
+#     if i > n:
+#         return 
+    
+#     print("Iranna")
+#     fun(i+1,n)
+
+# fun(1,5)
+
+'''def fun(i,n):
+    if i > n:
+        return 
+    print(i)
+    fun(i+1,n)
+
+fun(1,10)
+'''
+
+# def fun(i,n):
+#     if i < 1:
+#         return 
+    
+#     print(i)
+#     fun(i-1,n)
+
+# fun(100,100)
+
+'''def fun(i,n):
+    if i < 1:
+        return
+    
+    fun(i-1,n)
+    print(i)
+
+fun(5,5)'''
+
+'''def fun(i,n):
+    if i > n:
+        return
+    
+    fun(i+1,n)
+    print(i)
+
+fun(1,5)'''
+
+'''def fun(i,n):
+    if i < 1:
+        print(n)
+        return 
+    
+    fun(i-1,n+i)
+
+fun(6,0)'''
+
+'''def fun(n):
+    if n == 0:
+        return 0
+    
+    return n + fun(n-1)
+
+print(fun(3))'''
 
 
+def fun(i,fact):
+    if i <= 1:
+        print(fact)
+        return
+    
+    fun(i-1,fact*i)
 
 
+fun(5,1)
 
+'''def fun(n):
+    if n == 0:
+        return 1
+    return n * fun(n-1)
+
+print(fun(5))'''
+
+    
+
+    
 
 
 

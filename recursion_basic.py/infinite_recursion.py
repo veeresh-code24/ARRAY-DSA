@@ -120,7 +120,7 @@ main()'''
 
 # BACKTRACKING 1 TO N
 
-def f(i,n):
+'''def f(i,n):
     if i < 1:
         return 
     
@@ -132,7 +132,9 @@ def main():
     n = int(input("Enter the Number: "))
     f(n,n)
 
-main()
+main()'''
+
+
 
 
 
