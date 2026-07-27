@@ -235,52 +235,61 @@ print(left_rotate(nums,k))'''
 
 # Brute Force
 
-def move_zero_end(nums):
-    n = len(nums)
-    lst = []
+# def move_zero_end(nums):
+#     n = len(nums)
+#     lst = []
 
-    for i in range(n):
-        if nums[i] != 0:
-            lst.append(nums[i])
+#     for i in range(n):
+#         if nums[i] != 0:
+#             lst.append(nums[i])
 
-    for i in range(len(lst)):
-        nums[i] = lst[i]
+#     for i in range(len(lst)):
+#         nums[i] = lst[i]
 
-    for i in range(len(lst), n):
-        nums[i] = 0
+#     for i in range(len(lst), n):
+#         nums[i] = 0
 
-    return nums
+#     return nums
+
+# # nums = [0,1,0,3,12]
+# nums = [0]
+# print(move_zero_end(nums))
+
+# # Optimal
+
+# def move_zero_end(nums):
+#     n = len(nums)
+
+#     z = 0
+#     nz = 0
+
+#     while nz < n:
+#         if nums[nz] != 0:
+#             nums[nz],nums[z] = nums[z], nums[nz]
+#             z += 1
+#             nz += 1
+
+#         else:
+#             nz += 1
+
+#     return nums
+
+
 
 # nums = [0,1,0,3,12]
-nums = [0]
-print(move_zero_end(nums))
-
-# Optimal
-
-def move_zero_end(nums):
-    n = len(nums)
-
-    z = 0
-    nz = 0
-
-    while nz < n:
-        if nums[nz] != 0:
-            nums[nz],nums[z] = nums[z], nums[nz]
-            z += 1
-            nz += 1
-
-        else:
-            nz += 1
-
-    return nums
+# nums = [0]
+# print(move_zero_end(nums))
 
 
+def fun(i,n):
+    if i > n:
+        return 0
 
-# nums = [0,1,0,3,12]
-nums = [0]
-print(move_zero_end(nums))
+    # print(i)
+    fun(i+1,n)
+    print(i)
 
-
+fun(1,5)
 
 
 
