@@ -1,524 +1,287 @@
-# class Node:
-#     def __init__(self,data,next=None):
-#         self.data = data
-#         self.next = next
+# Brute force
 
-
-# def ConvertArray_LL(arr):
-#     head = Node(arr[0])
-#     movers = head
-#     for i in range(1, len(arr)):
-#         temp = Node(arr[i])
-#         movers.next = temp
-#         movers = temp
-
-#     return head
-
-# def MiddleLL(head):
-#     cnt = 0
-#     temp = head
-#     while temp != None:
-#         cnt += 1
-#         temp = temp.next
-
-    
-#     res = (cnt//2)+1
-#     temp = head
-#     while temp != None:
-#         res -= 1
-#         if (res==0):
-#             break
-#         temp = temp.next
-
-#     return temp.data
-
-
-# def TraverseLL(head):
-#     while head:
-#         print(head.data,end=" ")
-#         head = head.next
-
-#     print()
-
-
-
-# def main():
-#     arr = [2,4,6,8,20]
-#     head = ConvertArray_LL(arr)
-#     TraverseLL(head)
-#     length = MiddleLL(head)
-#     print(length)
-
-# if __name__ == '__main__':
-#     main()
-
-# class Node:
-#     def __init__(self,data,next=None):
-#         self.data = data
-#         self.next = next
-
-
-# def ConvertArray_LL(arr):
-#     head = Node(arr[0])
-#     movers = head
-#     for i in range(1, len(arr)):
-#         temp = Node(arr[i])
-#         movers.next = temp
-#         movers = temp
-
-#     return head
-
-# def  Reverse_LL(head):
-#     if head == None or head.next == None:
-#         return None
-    
-#     temp = head
-#     stack = []
-
-#     while temp != None:
-#         stack.append(temp.data)
-#         temp = temp.next
-
-#     temp = head
-#     while temp != None:
-#         temp.data = stack.pop()
-#         temp = temp.next
-
-#     return head
-
-
-# def TraverseLL(head):
-#     while head:
-#         print(head.data,end=" ")
-#         head = head.next
-
-#     print()
-
-
-
-# def main():
-#     arr = [2,4,6,8,20]
-#     head = ConvertArray_LL(arr)
-#     # TraverseLL(head)
-#     length = Reverse_LL(head)
-#     # print(length)
-#     TraverseLL(head)
-
-# if __name__ == '__main__':
-#     main()
-
-'''class Node:
-    def __init__(self,data,next=None):
-        self.data = data
-        self.next = next
-
-
-def ConvertArray_LL(arr):
-    head = Node(arr[0])
-    movers = head
-    for i in range(1, len(arr)):
-        temp = Node(arr[i])
-        movers.next = temp
-        movers = temp
-
-    return head
-
-def  Reverse_LL(head):
-    if head == None or head.next == None:
-        return None
-    
-    temp = head
-    prev = None
-
-    while temp != None:
-        front = temp.next
-        temp.next = prev
-        prev = temp
-        temp = front
-
-
-    return prev
-    
-
-
-def TraverseLL(head):
-    while head:
-        print(head.data,end=" ")
-        head = head.next
-
-    print()
-
-
-
-def main():
-    arr = [2,4,6,8,20]
-    head = ConvertArray_LL(arr)
-    # TraverseLL(head)
-    head = Reverse_LL(head)
-    # print(length)
-    TraverseLL(head)
-
-if __name__ == '__main__':
-    main()'''
-
-# class Node:
-#     def __init__(self,data,next=None):
-#         self.data = data
-#         self.next = next
-
-
-# class Solution:
-#     def CheckeLL_in_Loop(self,head):
-#         if head == None or head.next == None:
-#             return None
-        
-#         slow = head
-#         fast = head
-
-#         while fast != None and fast.next != None:
-#             slow = slow.next
-#             fast = fast.next.next
-
-#             if slow == fast:
-#                 return True
-            
-#         return False
-            
-
-# if __name__ == '__main__':
-#     head = Node(1)
-#     second = Node(2)
-#     third = Node(3)
-#     fourth = Node(4)
-#     fifth = Node(5)
-
-#     head.next = second
-#     second.next = third
-#     third.next = fourth
-#     fourth.next = fifth
-
-#     # fifth.next = second
-#     # third.next = second
-
-# sol = Solution()
-# startNode = sol.CheckeLL_in_Loop(head)
-
-# if startNode:
-#     print("Loop is present in linkedList")
-# else:
-#     print("Loop is not in linkedList")
-
-
-'''class Node:
-    def __init__(self,data,next=None):
-        self.data = data
-        self.next = next
-
-
-class Solution:
-    def CheckeLL_in_Loop(self,head):
-        if head == None or head.next == None:
-            return None
-        
-        slow = head
-        fast = head
-
-        while fast != None and fast.next != None:
-            slow = slow.next
-            fast = fast.next.next
-
-            if slow == fast:
-                return self. CountLL(slow,fast)
-            
-        return 0
-            
-
-    def CountLL(self,slow,fast):
-
-        fast = fast.next
-        cnt = 1
-
-        while slow != fast:
-            cnt += 1
-            fast = fast.next
-
-        return cnt
-
-        
-
-
-        
-        
-
-if __name__ == '__main__':
-    head = Node(1)
-    second = Node(2)
-    third = Node(3)
-    fourth = Node(4)
-    fifth = Node(5)
-
-    head.next = second
-    second.next = third
-    third.next = fourth
-    fourth.next = fifth
-
-    fifth.next = second
-    # third.next = second
-
-sol = Solution()
-startNode = sol.CheckeLL_in_Loop(head)
-
-if startNode:
-    print("Loop is present in linkedList",startNode)
-else:
-    print("Loop is not in linkedList")'''
-
-# def largest_ele(nums):
-#     nums.sort()
-
-#     return nums[-1]
-
-# nums = [10,2,1,200,2,3,100,3,4,5]
-# print(largest_ele(nums))
-
-# def largest_nums(nums):
-
-#     largest = -1
-
-#     for i in range(len(nums)):
-#         if nums[i] > largest:
-#             largest = nums[i]
-
-#     return largest
-
-
-# nums = [200,1,2,3,4,23,21]
-# print(largest_nums(nums))
-
-'''def second_largest(nums):
+'''def largest_num(nums):
     nums.sort()
-    first_lar = nums[-1]
 
-    for i in range(len(nums)-1,-1):
-        if nums[i] != first_lar:
+    return nums[-1]
+
+nums = [3, 3, 6, 1]
+print(largest_num(nums))
+
+
+# Optimal Solution
+def largest_num(nums):
+
+    largest = float('-inf')
+
+    for i in range(len(nums)):
+        if nums[i] > largest:
+            largest = nums[i]
+
+    return largest
+
+# nums = [3, 3, 6, 1]
+nums = [0,0,0, -40]
+
+print(largest_num(nums))
+
+'''
+# Brute Force
+
+'''def second_lar(nums):
+    nums.sort()
+    largest = nums[-1]
+
+    for i in range(len(nums)-1, -1, -1):
+        if nums[i] != largest:
             return nums[i]
-        
-nums = [2,46,21,12,45,3]
-print(second_largest(nums))
 
-def second_largest(nums):
 
-    first_lar = second_lar = float('-inf')
+
+nums = [8, 8, 7, 6, 5]
+print(second_lar(nums))
+
+# Better 
+
+def second_lar(nums):
+    first_lar = float('-inf')
+    second_lar = float('-inf')
 
     for i in range(len(nums)):
         if nums[i] > first_lar:
             first_lar = nums[i]
-
 
     for i in range(len(nums)):
         if nums[i] != first_lar and nums[i] > second_lar:
             second_lar = nums[i]
 
     return second_lar
-        
-nums = [101,21,34,1,2,4,53,100,200]
-print(second_largest(nums))'''
-
-'''def second_largest(nums):
-    first_lar = second_lar = float('-inf')
-
-    for i in range(len(nums)):
-        if nums[i] > first_lar:
-            second_lar = first_lar
-            first_lar = nums[i]
-
-        elif nums[i] != first_lar and nums[i] > second_lar:
-            second_lar = nums[i]
-
-    return second_lar
 
 
-nums = [101,21,34,1,2,4,53,100,200,4000]
-print(second_largest(nums))'''
+nums = [8, 8, 7, 6, 5]
+print(second_lar(nums))
 
-'''def sorted_array(nums):
-    count = 0
+# Optimal Solution
+
+def second_lar(nums):
+    fir_lar = float('-inf')
+    sec_lar = float('-inf')
+
+    
 
     for i in range(len(nums)):
-        if nums[i] > nums[(i+1)%len(nums)]:
-            count += 1
-        
-    return count <= 1
-
-
-nums = [1,2,1,3]
-print(sorted_array(nums))'''
-
-# def sorted_arr(nums):
-#     count = 0
-
-#     for i in range(1,len(nums):
-#         if nums[i] > nums[i+1]%len(nums):
-#             count += 1
-
-#     return count == 1
+        if nums[i] > fir_lar:
+            sec_lar = fir_lar
+            fir_lar = nums[i]
 
 
 
+        elif nums[i] != fir_lar and nums[i] > sec_lar:
+            sec_lar = nums[i]
 
-# nums = [3,4,5,1,2]
-# print(sorted_arr(nums))
+    if sec_lar == float('-inf'):
+        return -1
 
-'''def remove_duplicate(nums):
-    n = len(nums)
+
+    return sec_lar
+
+# nums = [8, 8, 7, 6, 5]
+nums = [10, 10, 10, 10, 10]
+# nums = [7, 7, 2, 2, 10, 10, 10]
+print(second_lar(nums))
+'''
+
+# def check_sort(nums):
+
+#     for i in range(1,len(nums)):
+#         if nums[i] < nums[i-1]:
+#             return False
+
+#     return True
+
+
+# nums = [1,2,3,5]
+# print(check_sort(nums))
+
+# Brute Force
+
+'''def rem_dupli(nums):
 
     st = set()
-    for i in range(n):
+    for i in range(len(nums)):
         st.add(nums[i])
 
     index = 0
+
     for i in st:
         nums[index] = i
         index += 1
 
     return index
 
-nums = [0 ,0, 3, 3,5, 6, 6]
-print(remove_duplicate(nums))'''
 
-# def remove_duplicate(nums):
-#     n = len(nums)
+# nums = [1,1,2]
+nums = [0,0,1,1,1,2,2,3,3,4]
+print(rem_dupli(nums))
 
-#     i = 0
-#     j = 1
-#     while j < n:
-#         if nums[j] != nums[i]:
-#             nums[i+1] = nums[j]
-#             j += 1
-#             i += 1
+# Optimal
 
-#         else:
-#             j += 1
+def rem_dupli(nums):
+    n = len(nums)
 
-        
-#     return nums
+    i = 0
+    for j in range(n):
+        if nums[j] != nums[i]:
+            nums[i+1] = nums[j]
+            i += 1
+
+    return i + 1
 
 
-
-# nums = [0 ,0, 3, 3,5, 6, 6]
-# print(remove_duplicate(nums))
-
-'''def fun():
-    print(1)
-
-    fun()
-
-fun()'''
-
-'''cnt = 0
-def fun():
-    global cnt
-    if cnt > 10:
-        return 
-    print(cnt)
-    cnt += 1
-
-    fun()
-
-fun()'''
-
-# def fun(cnt):
-#     if cnt > 10:
-#         return 
-    
-#     print(cnt)
-#     fun(cnt+1)
-
-# fun(0)
-
-# def fun(i,n):
-#     if i > n:
-#         return 
-    
-#     print("Iranna")
-#     fun(i+1,n)
-
-# fun(1,5)
-
-'''def fun(i,n):
-    if i > n:
-        return 
-    print(i)
-    fun(i+1,n)
-
-fun(1,10)
+nums = [1,1,2]
+# nums = [0,0,1,1,1,2,2,3,3,4]
+print(rem_dupli(nums))
 '''
 
-# def fun(i,n):
-#     if i < 1:
-#         return 
-    
-#     print(i)
-#     fun(i-1,n)
+'''def left_rot_one(nums):
 
-# fun(100,100)
+    n = len(nums)
+    temp = nums[0]
 
-'''def fun(i,n):
-    if i < 1:
-        return
-    
-    fun(i-1,n)
-    print(i)
+    for i in range(1,n):
+        nums[i-1] = nums[i]
 
-fun(5,5)'''
-
-'''def fun(i,n):
-    if i > n:
-        return
-    
-    fun(i+1,n)
-    print(i)
-
-fun(1,5)'''
-
-'''def fun(i,n):
-    if i < 1:
-        print(n)
-        return 
-    
-    fun(i-1,n+i)
-
-fun(6,0)'''
-
-'''def fun(n):
-    if n == 0:
-        return 0
-    
-    return n + fun(n-1)
-
-print(fun(3))'''
+    nums[-1] = temp
+    return nums
 
 
-def fun(i,fact):
-    if i <= 1:
-        print(fact)
-        return
-    
-    fun(i-1,fact*i)
+
+# nums = [1, 2, 3, 4, 5]
+nums = [-1, 0, 3, 6]
+print(left_rot_one(nums))
+
+# Better
+
+def left_rot_one(nums,k):
+    n = len(nums)
+    temp = nums[0:k]
+    k = k % n
+
+    for i in range(k,n):
+        nums[i-k] = nums[i]
+
+    for  i in range(k):
+        nums[n-k+i] = temp[i]
+
+    return nums
 
 
-fun(5,1)
+nums = [1, 2, 3, 4, 5]
+# nums = [-1, 0, 3, 6]
+k = 3
+print(left_rot_one(nums,k))
 
-def fun(n):
-    if n == 0:
-        return 1
-    return n * fun(n-1)
+# Optimal
 
-print(fun(5))
+def left_rot_one(nums,k):
+    n = len(nums)
 
-    
+    k = k%n
 
-    
+    nums[:k] = reversed(nums[:k])
+    nums[k:]  = reversed(nums[k:])
+    nums[::] = nums[::-1]
+
+    return nums
+
+nums = [1, 2, 3, 4, 5]
+# nums = [-1, 0, 3, 6]
+k = 3
+print(left_rot_one(nums,k))'''
+
+'''def left_rotate(nums,k):
+
+    n = len(nums)
+    k = k % n
+    temp = nums[0:k]
+
+    for i in range(k,n):
+        nums[i-k] = nums[i]
+
+    for i in range(k):
+        nums[n-k+i] = temp[i]
+
+    return nums
+
+
+
+nums = [1,2,3,4,5,6,7]
+k = 3
+print(left_rotate(nums,k))'''
+
+'''def left_rotate(nums,k):
+    k = k % len(nums)
+
+    nums[:k] = reversed(nums[:k])
+    nums[k:] = reversed(nums[k:])
+    nums[::] = nums[::-1]
+
+    return nums
+
+
+nums = [1,2,3,4,5,6,7]
+k = 3
+print(left_rotate(nums,k))'''
+
+# Brute Force
+
+def move_zero_end(nums):
+    n = len(nums)
+    lst = []
+
+    for i in range(n):
+        if nums[i] != 0:
+            lst.append(nums[i])
+
+    for i in range(len(lst)):
+        nums[i] = lst[i]
+
+    for i in range(len(lst), n):
+        nums[i] = 0
+
+    return nums
+
+# nums = [0,1,0,3,12]
+nums = [0]
+print(move_zero_end(nums))
+
+# Optimal
+
+def move_zero_end(nums):
+    n = len(nums)
+
+    z = 0
+    nz = 0
+
+    while nz < n:
+        if nums[nz] != 0:
+            nums[nz],nums[z] = nums[z], nums[nz]
+            z += 1
+            nz += 1
+
+        else:
+            nz += 1
+
+    return nums
+
+
+
+# nums = [0,1,0,3,12]
+nums = [0]
+print(move_zero_end(nums))
+
+
+
 
 
 
