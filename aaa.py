@@ -281,7 +281,7 @@ print(left_rotate(nums,k))'''
 # print(move_zero_end(nums))
 
 
-def fun(i,n):
+'''def fun(i,n):
     if i > n:
         return 0
 
@@ -289,10 +289,184 @@ def fun(i,n):
     fun(i+1,n)
     print(i)
 
-fun(1,5)
+fun(1,5)'''
+
+# def linear_ser(nums,target):
+#     n = len(nums)
+
+#     for i in range(n):
+#         if nums[i] == target:
+#             return i
+
+#     return -1
 
 
 
+# nums = [1,2,3,4,5]
+# target = 6
+# print(linear_ser(nums,target))
+
+'''def union_sor(nums1,nums2):
+    n = len(nums1)
+    m = len(nums2)
+
+    st = set()
+    for i in range(n):
+        st.add(nums1[i])
+
+    for j in range(m):
+        st.add(nums2[j])
+
+    ans = []
+    for k in st:
+        ans.append(k)
+
+    return ans
+
+
+
+
+
+nums1 = [1, 2, 3, 4, 5]
+nums2 = [1, 2, 7]
+print(union_sor(nums1,nums2))'''
+
+'''def missing_num(nums):
+    n = len(nums)
+
+    res = n*(n+1)//2
+    ans = res - sum(nums)
+
+    return ans 
+
+# nums = [0, 2, 3, 1, 4]
+# nums = [0, 1, 2, 4, 5, 6]
+nums = [1, 3, 6, 4, 2, 5]
+print(missing_num(nums))'''
+
+'''def max_consecutive(nums):
+    n = len(nums)
+
+    count = 0
+    max_count = 0
+    for i in range(n):
+        if nums[i] == 1:
+            count += 1
+
+            max_count = max(max_count, count)
+
+        else:
+            count = 0
+
+    return max_count
+
+nums = [1,1,0,1,1,1]
+# nums = [1,0,1,1,0,1]
+
+print(max_consecutive(nums))'''
+
+# def max_consecutive(nums):
+#     n = len(nums)
+#     count = 0
+#     max_count = 0
+
+#     for i in range(n):
+#         count = 0
+
+#         for j in range(i,n):
+#             if nums[j] == 1:
+#                 count += 1
+
+#             else:
+#                 break
+
+#         max_count = max(max_count, count)
+
+#     return max_count
+
+
+
+# # nums = [1,1,0,1,1,1]
+# nums = [1,0,1,1,0,1]
+
+# print(max_consecutive(nums))
+
+'''def single_number(nums):
+    n = len(nums)
+    
+
+    for i in range(n):
+        count = 0
+        for j in range(n):
+            if nums[j] == nums[i]:
+                count += 1
+
+
+        if count == 1:
+            return nums[i]
+
+nums = [4,1,2,1,2]
+print(single_number(nums))
+'''
+
+'''def single_number(nums):
+    n = len(nums)
+
+    dit = {}
+
+    for d in nums:
+        if d not in dit:
+            dit[d] = 1
+
+        else:
+            dit[d] += 1
+
+    for key,value in dit.items():
+        if value == 1:
+            return key
+
+
+
+# nums = [4,1,2,1,2]
+nums = [2,2,1]
+print(single_number(nums))'''
+
+# def single_number(nums):
+
+#     xorr = 0
+
+#     for i in range(len(nums)):
+#         xorr ^= nums[i]
+#     return xorr
+
+# nums = [4,1,2,1,2]
+# # nums = [2,2,1]
+# print(single_number(nums))
+
+def longest_subarray(nums,k):
+    n = len(nums)
+    length = 0
+    max_len = 0
+
+    for i in range(n):
+        curr_sum = 0
+        for j in range(i,n):
+            curr_sum += nums[j]
+
+            if curr_sum == k:
+                length = j-i+1
+
+                max_len = max(max_len, length)
+
+
+    return max_len
+
+
+# nums = [10, 5, 2, 7, 1, 9]
+# k=15
+nums = [-3, 2, 1]
+k=6
+print(longest_subarray(nums,k))
 
 
 
