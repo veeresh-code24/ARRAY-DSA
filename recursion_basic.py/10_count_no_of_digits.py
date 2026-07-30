@@ -1,4 +1,4 @@
-def count_digits(n):
+'''def count_digits(n):
     if n < 10:
         return 1
 
@@ -39,4 +39,27 @@ def count_digits(n):
 
 
 print(count_digits(-9876))  # 4
-print(count_digits(0))      # 1
+print(count_digits(0))      # 1'''
+
+# def sum_of_digit(i,sum):
+#     if i < 1:
+#         print(sum)
+#         return
+
+#     sum_of_digit(i-1,sum+i)
+
+# sum_of_digit(10,0)
+
+def sum_of_digit(n):
+    if n < 1:
+        return 0
+
+    return n + sum_of_digit(n-1)
+
+print(sum_of_digit(5))
+
+
+
+
+
+
