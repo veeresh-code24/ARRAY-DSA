@@ -1,72 +1,37 @@
-class Stack:
-    def __init__(self, size = 10):
-        self.arr = [0] * size
-        self.top = -1
-        self.capacity = size
+class MinStack:
+    def __init__(self):
+        self.st = []
 
-    def push(self,x):
-        if self.top == self.capacity -1:
-            print("Stack Overflow")
+    def push(self,val):
+
+        if not self.st:
+            self.st.append((val, val))
             return
 
-        self.top += 1
-        self.arr[self.top] = x
+
+        mini = min(self.getMin(), val)
+
+        self.st.append((val, mini))
 
     def pop(self):
-        if self.top == -1:
-            print("Stack id Full")
-
-            return
-        
-
-        popped = self.arr[self.top]
-        self.top -= 1
-        return popped
+        return self.st.pop()
 
     def top(self):
-        if self.top == -1:
-            print("Strack is Full")
-            return
+        return self.st[-1][0]
 
-        return self.arr[self.top]
+    def getMin(self):
+        return self.st[-1][1]
 
-    def getMin(self,x):
-        if x < self.top:
-
-            return x
-
-if __name__ == '__main__':
-    st = Stack()
-    commands = ["MinStack","push","push","push","getMin","pop","top","getMin"]
-    inputs = [[],[-2],[0],[-3],[],[],[],[]]
-
-    for i in range(len(commands)):
-        
-            if commands[i] == "push":
-                st.push(inputs[i][0])
-                print("null", end= " ")
-        
-            elif commands[i] == 'pop':
-                print(st.pop(), end = " ")
-        
-            elif commands[i] == "top":
-                print(st.top(), end= " ")
-        
-            elif commands[i] == "MinStack":
-                print("null", end = " ")
-
-            elif commands[i] == "getMin":
-                print(st.getMin(), end = " ")
-
-        
+if __name__ == "__main__":
+    s = MinStack()
     
-    
-
-
-
-
-
-    
-
-
+    # Function calls
+    s.push(-2)
+    s.push(0)
+    s.push(-3)
+    print(s.getMin(), end=" ")
+    s.pop()
+    print(s.top(), end=" ")
+    s.pop()
+    print(s.getMin())
 
