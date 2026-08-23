@@ -20,10 +20,6 @@ def aestroidCollision(aestroid):
     return st
 
 
-
-
-    
-
 # aestroid = [3,5,-6,2,-1,4]
 # aestroid = [8,-8]
 # aestroid = [10,2,-5]

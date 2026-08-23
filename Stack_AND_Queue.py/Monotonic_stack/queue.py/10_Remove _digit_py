@@ -1,0 +1,60 @@
+# Optimal solution
+
+def remove_k_digit(num, k):
+    n = len(num)
+    stack= []
+
+    for digit in num:
+
+        while stack and k > 0 and stack[-1] > digit:
+            stack.pop()
+            k -= 1
+
+        stack.append(digit)
+
+    while stack and k > 0:
+        stack.pop()
+        k -= 1
+
+    if not stack:
+        return "0"
+
+    # res = ""
+    # while stack:
+    #     res += stack.pop()
+
+    # res = res.rstrip("0")
+
+    # res = res[::-1]
+
+    # if not res:
+    #     return "0"
+
+    result = ''.join(stack).lstrip("0")
+
+    return result if result else "0"
+
+
+num = "1432219"
+k = 3
+print(remove_k_digit(num, k))
+
+
+'''First for + inner while       O(n)
+Second while                  O(n)
+Building res using +=         O(n²)  ← Python-specific issue
+rstrip                        O(n)
+reverse                       O(n)'''
+
+
+
+
+
+
+
+
+
+
+
+
+
